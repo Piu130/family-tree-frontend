@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $state, familyMemberRepository) {
+  function MainController($scope, $state, familyMemberRepository, rootMember) {
     $scope.searchText = '';
 
     var htmlTree = '';
@@ -14,14 +14,14 @@
     familyMemberRepository
       .get()
       .then(function (response) {
-        var rootMember = response.find(function (familyMember) {
-          return (familyMember.firstName === 'Hans' && familyMember.lastName === 'Ramser');
+        var rootMemberObject = response.find(function (familyMember) {
+          return (familyMember.firstName === rootMember.firstName && familyMember.lastName === rootMember.lastName);
         });
 
         htmlTree += '[';
-        startLi(rootMember);
+        startLi(rootMemberObject);
 
-        addSpouseAndChildren(rootMember.id);
+        addSpouseAndChildren(rootMemberObject.id);
 
         htmlTree += '}';
         closeUl();
