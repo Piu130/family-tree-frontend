@@ -5,7 +5,9 @@
     .module('familyTreeFrontend', [
       'ui.router',
       'ui.bootstrap',
-      'ngSanitize'
+      'ngSanitize',
+      'main',
+      'person'
     ]);
 
 })();

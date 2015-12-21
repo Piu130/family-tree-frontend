@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('familyTreeFrontend')
+    .module('main', [])
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $state, familyMemberRepository, rootMember) {
+  function MainController($scope, $state, $uibModal, familyMemberRepository, rootMember) {
     $scope.searchText = '';
 
     var htmlTree = '';
@@ -29,7 +29,7 @@
         $('#tree').treeview(
           {
             data: htmlTree,
-            enableLinks: true,
+            enableLinks: false,
             levels: 3,
 
             onNodeSelected: onNodeSelected
@@ -44,9 +44,12 @@
 
     function addSpouse(id) {
       var spouse = familyMemberRepository.getSpouse(id);
-
       if (spouse) {
-        //htmlTree += ' + ';
+        console.log(htmlTree);
+        htmlTree += '"spouse":{';
+        addFamilyMemberContent(spouse);
+        removeLastChar();
+        htmlTree += '},';
         //addLiContent(spouse);
       }
     }
@@ -74,8 +77,14 @@
     }
 
     function addFamilyMemberContent(familyMember) {
-      htmlTree += '"text":"' + familyMember.firstName + ' ' + familyMember.lastName +
-        '","bla":"bla","id":"' + familyMember.id + '",';
+      var spouse = familyMemberRepository.getSpouse(familyMember.id);
+      if (spouse) {
+        htmlTree += '"text":"' + familyMember.firstName + ' ' + familyMember.lastName + ' + ' + spouse.firstName +
+          ' ' + spouse.lastName + '","id":["' + familyMember.id + '","' + spouse.id + '"],';
+      } else {
+        htmlTree += '"text":"' + familyMember.firstName + ' ' + familyMember.lastName +
+          '","id":"' + familyMember.id + '",';
+      }
     }
 
     function openFamilyMember(familyMember) {
@@ -100,15 +109,25 @@
     }
 
     $scope.search = function() {
-      $('#tree').treeview('search', [$scope.searchText, {
-        ignoreCase: true
-      }]);
+      $('#tree').treeview('search', [$scope.searchText]);
     };
 
     function onNodeSelected(event, data) {
-      $state.go('person', {
-        id: data.id
-      });
+      if(Array.isArray(data.id)) {
+        var modalInstance = $uibModal.open({
+          templateUrl: 'app/main/templates/married.template.html',
+          controller: 'MarriedController',
+          ids: data.id
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+          $scope.selected = selectedItem;
+        });
+      } else {
+        $state.go('person', {
+          id: data.id
+        });
+      }
     }
   }
 
