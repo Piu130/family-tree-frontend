@@ -56,7 +56,11 @@
 
       if (children) {
         startUl();
-        children.forEach(function (child) {
+        children
+          .sort(function(a, b) {
+            return a.order > b.order;
+          })
+          .forEach(function (child) {
           startLi(child);
           addSpouseAndChildren(child.id);
           closeLi();
