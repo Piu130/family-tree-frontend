@@ -61,10 +61,10 @@
             return a.order > b.order;
           })
           .forEach(function (child) {
-          startLi(child);
-          addSpouseAndChildren(child.id);
-          closeLi();
-        });
+            startLi(child);
+            addSpouseAndChildren(child.id);
+            closeLi();
+          });
         removeLast();
         closeUl();
       }
