@@ -19,12 +19,12 @@
         });
 
         htmlTree += '[';
-        startLi(rootMemberObject);
+        openFamilyMember(rootMemberObject);
 
         addSpouseAndChildren(rootMemberObject.id);
 
         htmlTree += '}';
-        closeUl();
+        closeChildren();
 
         $('#tree').treeview(
           {
@@ -55,47 +55,47 @@
       var children = familyMemberRepository.getChildren(id);
 
       if (children) {
-        startUl();
+        openChildren();
         children
           .sort(function(a, b) {
             return a.order > b.order;
           })
           .forEach(function (child) {
-            startLi(child);
+            openFamilyMember(child);
             addSpouseAndChildren(child.id);
-            closeLi();
+            closeFamilyMember();
           });
-        removeLast();
-        closeUl();
+        removeLastChar();
+        closeChildren();
       }
       else {
-        removeLast();
+        removeLastChar();
       }
     }
 
-    function addLiContent(familyMember) {
+    function addFamilyMemberContent(familyMember) {
       htmlTree += '"text":"' + familyMember.firstName + ' ' + familyMember.lastName +
         '","bla":"bla","id":"' + familyMember.id + '",';
     }
 
-    function startLi(familyMember) {
+    function openFamilyMember(familyMember) {
       htmlTree += '{';
-      addLiContent(familyMember);
+      addFamilyMemberContent(familyMember);
     }
 
-    function closeLi() {
+    function closeFamilyMember() {
       htmlTree += '},';
     }
 
-    function startUl() {
+    function openChildren() {
       htmlTree += '"nodes":[';
     }
 
-    function closeUl() {
+    function closeChildren() {
       htmlTree += ']';
     }
 
-    function removeLast() {
+    function removeLastChar() {
       htmlTree = htmlTree.substring(0, htmlTree.length - 1);
     }
 
