@@ -67,10 +67,10 @@
       var spouse = familyMemberRepository.getSpouse(familyMember.id);
 
       familyMemberString += '"familyMember":' + JSON.stringify(familyMember) + ',"text":"';
-      familyMemberString += familyMemberRepository.getNamesAsString(familyMember);
+      familyMemberString += familyMemberRepository.getNamesAsString(familyMember, true);
       if (spouse) {
         familyMemberString += ' + ';
-        familyMemberString += familyMemberRepository.getNamesAsString(spouse);
+        familyMemberString += familyMemberRepository.getNamesAsString(spouse,true);
       }
 
       if (spouse) {
