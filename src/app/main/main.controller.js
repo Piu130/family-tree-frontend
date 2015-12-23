@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('main', [])
+    .module('main', ['married'])
     .controller('MainController', MainController);
 
   /** @ngInject */
@@ -15,16 +15,17 @@
       .get()
       .then(function (response) {
         var rootMemberObject = response.find(function (familyMember) {
-          return (familyMember.firstName === rootMember.firstName && familyMember.lastName === rootMember.lastName);
+          return (familyMember.firstNames[0] === rootMember.firstName && familyMember.lastNames[0] === rootMember.lastName);
         });
 
         htmlTree += '[';
-        openFamilyMember(rootMemberObject);
+        htmlTree += getOpenFamilyMemberString();
+        htmlTree += getFamilyMemberString(rootMemberObject);
 
-        addSpouseAndChildren(rootMemberObject.id);
+        addChildren(rootMemberObject.id);
 
         htmlTree += '}';
-        closeChildren();
+        htmlTree += getCloseChildrenString();
 
         $('#tree').treeview(
           {
@@ -37,75 +38,75 @@
         );
       });
 
-    function addSpouseAndChildren(id) {
-      addSpouse(id);
-      addChildren(id);
-    }
-
-    function addSpouse(id) {
-      var spouse = familyMemberRepository.getSpouse(id);
-      if (spouse) {
-        console.log(htmlTree);
-        htmlTree += '"spouse":{';
-        addFamilyMemberContent(spouse);
-        removeLastChar();
-        htmlTree += '},';
-        //addLiContent(spouse);
-      }
-    }
-
     function addChildren(id) {
       var children = familyMemberRepository.getChildren(id);
 
       if (children) {
-        openChildren();
+        htmlTree += getOpenChildrenString();
         children
           .sort(function(a, b) {
             return a.order > b.order;
           })
           .forEach(function (child) {
-            openFamilyMember(child);
-            addSpouseAndChildren(child.id);
-            closeFamilyMember();
+            htmlTree += getOpenFamilyMemberString();
+            htmlTree += getFamilyMemberString(child);
+            addChildren(child.id);
+            htmlTree += getCloseFamilyMemberString();
           });
-        removeLastChar();
-        closeChildren();
+        htmlTree = removeLastChar(htmlTree);
+        htmlTree += getCloseChildrenString();
       }
       else {
-        removeLastChar();
+        htmlTree = removeLastChar(htmlTree);
       }
     }
 
-    function addFamilyMemberContent(familyMember) {
+    function getFamilyMemberString(familyMember) {
+      var familyMemberString = '';
+
       var spouse = familyMemberRepository.getSpouse(familyMember.id);
+
+      familyMemberString += '"familyMember":' + JSON.stringify(familyMember) + ',"text":"';
+      familyMemberString += getNamesAsString(familyMember);
       if (spouse) {
-        htmlTree += '"text":"' + familyMember.firstName + ' ' + familyMember.lastName + ' + ' + spouse.firstName +
-          ' ' + spouse.lastName + '","id":["' + familyMember.id + '","' + spouse.id + '"],';
-      } else {
-        htmlTree += '"text":"' + familyMember.firstName + ' ' + familyMember.lastName +
-          '","id":"' + familyMember.id + '",';
+        familyMemberString += '+ ';
+        familyMemberString += getNamesAsString(spouse);
       }
+      familyMemberString = removeLastChar(familyMemberString);
+      if (spouse) {
+        familyMemberString += '","id":["' + familyMember.id + '","' + spouse.id + '"],' + '"spouse":' + JSON.stringify(spouse) + ',';
+      } else {
+        familyMemberString += '","id":"' + familyMember.id + '",';
+      }
+
+      return familyMemberString;
     }
 
-    function openFamilyMember(familyMember) {
-      htmlTree += '{';
-      addFamilyMemberContent(familyMember);
+    function getNamesAsString(familyMember) {
+      var names = '';
+      familyMember.firstNames.forEach(function(firstName) { names += firstName + ' '; });
+      familyMember.lastNames.forEach(function(lastName) { names += lastName + ' '; });
+      return names;
     }
 
-    function closeFamilyMember() {
-      htmlTree += '},';
+    function getOpenFamilyMemberString() {
+      return '{';
     }
 
-    function openChildren() {
-      htmlTree += '"nodes":[';
+    function getCloseFamilyMemberString() {
+      return '},';
     }
 
-    function closeChildren() {
-      htmlTree += ']';
+    function getOpenChildrenString() {
+      return '"nodes":[';
     }
 
-    function removeLastChar() {
-      htmlTree = htmlTree.substring(0, htmlTree.length - 1);
+    function getCloseChildrenString() {
+      return ']';
+    }
+
+    function removeLastChar(string) {
+      return string.substring(0, string.length - 1);
     }
 
     $scope.search = function() {
@@ -113,16 +114,22 @@
     };
 
     function onNodeSelected(event, data) {
+
       if(Array.isArray(data.id)) {
         var modalInstance = $uibModal.open({
           templateUrl: 'app/main/templates/married.template.html',
           controller: 'MarriedController',
-          ids: data.id
+          resolve: {
+            data: function () {
+              return data;
+            }
+          }
         });
 
-        modalInstance.result.then(function (selectedItem) {
-          $scope.selected = selectedItem;
-        });
+        modalInstance.result
+          .then(function (selectedItem) {
+            $scope.selected = selectedItem;
+          });
       } else {
         $state.go('person', {
           id: data.id
