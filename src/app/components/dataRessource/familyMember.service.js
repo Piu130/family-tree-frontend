@@ -12,7 +12,8 @@
       apiHost: apiHost,
       get: getAll,
       getSpouse: getSpouse,
-      getChildren: getChildren
+      getChildren: getChildren,
+      getNamesAsString: getNamesAsString
     };
 
     var familyMembers = [];
@@ -50,6 +51,15 @@
       }
 
       return null;
+    }
+
+    function getNamesAsString(familyMember) {
+      var names = '';
+
+      familyMember.firstNames.forEach(function(firstName) { names += firstName + ' '; });
+      familyMember.lastNames.forEach(function(lastName) { names += lastName + ' '; });
+
+      return names.removeLast();
     }
   }
 })();

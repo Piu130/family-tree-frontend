@@ -53,11 +53,11 @@
             addChildren(child.id);
             htmlTree += getCloseFamilyMemberString();
           });
-        htmlTree = removeLastChar(htmlTree);
+        htmlTree = htmlTree.removeLast();
         htmlTree += getCloseChildrenString();
       }
       else {
-        htmlTree = removeLastChar(htmlTree);
+        htmlTree = htmlTree.removeLast();
       }
     }
 
@@ -67,12 +67,12 @@
       var spouse = familyMemberRepository.getSpouse(familyMember.id);
 
       familyMemberString += '"familyMember":' + JSON.stringify(familyMember) + ',"text":"';
-      familyMemberString += getNamesAsString(familyMember);
+      familyMemberString += familyMemberRepository.getNamesAsString(familyMember);
       if (spouse) {
-        familyMemberString += '+ ';
-        familyMemberString += getNamesAsString(spouse);
+        familyMemberString += ' + ';
+        familyMemberString += familyMemberRepository.getNamesAsString(spouse);
       }
-      familyMemberString = removeLastChar(familyMemberString);
+
       if (spouse) {
         familyMemberString += '","id":["' + familyMember.id + '","' + spouse.id + '"],' + '"spouse":' + JSON.stringify(spouse) + ',';
       } else {
@@ -80,13 +80,6 @@
       }
 
       return familyMemberString;
-    }
-
-    function getNamesAsString(familyMember) {
-      var names = '';
-      familyMember.firstNames.forEach(function(firstName) { names += firstName + ' '; });
-      familyMember.lastNames.forEach(function(lastName) { names += lastName + ' '; });
-      return names;
     }
 
     function getOpenFamilyMemberString() {
@@ -103,10 +96,6 @@
 
     function getCloseChildrenString() {
       return ']';
-    }
-
-    function removeLastChar(string) {
-      return string.substring(0, string.length - 1);
     }
 
     $scope.search = function() {
