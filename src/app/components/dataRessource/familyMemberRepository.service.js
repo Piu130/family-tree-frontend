@@ -9,7 +9,6 @@
   function familyMemberRepository($log, $http, apiHost) {
 
     var service = {
-      apiHost: apiHost,
       get: getAll,
       getSpouse: getSpouse,
       getChildren: getChildren,
@@ -53,8 +52,11 @@
       return null;
     }
 
-    function getNamesAsString(familyMember) {
+    function getNamesAsString(familyMember, withCross) {
       var names = '';
+      if (withCross && familyMember.dayOfDeath) {
+        names += '(✝) ';
+      }
 
       familyMember.firstNames.forEach(function(firstName) { names += firstName + ' '; });
       familyMember.lastNames.forEach(function(lastName) { names += lastName + ' '; });
