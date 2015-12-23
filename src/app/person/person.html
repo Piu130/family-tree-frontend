@@ -4,5 +4,21 @@
     <acme-navbar></acme-navbar>
   </div>
 
+  <div class="container">
+    <div><h1>{{ title }}</h1></div>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <p>
+          Alter: {{ info.age }}<br />
+          Beruf: {{ info.profession }}<br />
+          Grösse: {{ info.size }}
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <img alt="Persons image" class="img-responsive" ng-src="{{ imgSrc }}" />
+      </div>
+    </div>
+  </div>
 
 </div>
