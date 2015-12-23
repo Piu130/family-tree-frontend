@@ -69,7 +69,7 @@
       familyMemberString += '"familyMember":' + JSON.stringify(familyMember) + ',"text":"';
       familyMemberString += familyMemberRepository.getNamesAsString(familyMember, true);
       if (spouse) {
-        familyMemberString += ' + ';
+        familyMemberString += ' & ';
         familyMemberString += familyMemberRepository.getNamesAsString(spouse,true);
       }
 
