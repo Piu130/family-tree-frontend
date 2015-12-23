@@ -10,9 +10,12 @@
 
     var service = {
       get: getAll,
+      query: query,
+      getInfo: getInfo,
       getSpouse: getSpouse,
       getChildren: getChildren,
-      getNamesAsString: getNamesAsString
+      getNamesAsString: getNamesAsString,
+      getAge: getAge
     };
 
     var familyMembers = [];
@@ -20,18 +23,41 @@
     return service;
 
     function getAll() {
-      return $http.get(apiHost + '/familyMembers')
+      return $http
+        .get(apiHost + '/familyMembers')
         .then(getAllComplete)
-        .catch(getAllFailed);
+        .catch(getFailed);
 
       function getAllComplete(response) {
         familyMembers = response.data;
         return response.data;
       }
+    }
 
-      function getAllFailed(error) {
-        $log.error('XHR Failed for get.\n' + angular.toJson(error.data, true));
+    function query(id) {
+      return $http
+        .get(apiHost + '/familyMembers/' + id)
+        .then(queryComplete)
+        .catch(getFailed);
+
+      function queryComplete(response) {
+        return response.data;
       }
+    }
+
+    function getInfo(id) {
+      return $http
+        .get(apiHost + '/familyMembers/' + id + '/info')
+        .then(getInfoComplete)
+        .catch(getFailed);
+
+      function getInfoComplete(response) {
+        return response.data;
+      }
+    }
+
+    function getFailed(error) {
+      $log.error('XHR Failed for get.\n' + angular.toJson(error.data, true));
     }
 
     function getSpouse(id) {
@@ -54,14 +80,26 @@
 
     function getNamesAsString(familyMember, withCross) {
       var names = '';
-      if (withCross && familyMember.dayOfDeath) {
-        names += '(✝) ';
-      }
 
       familyMember.firstNames.forEach(function(firstName) { names += firstName + ' '; });
       familyMember.lastNames.forEach(function(lastName) { names += lastName + ' '; });
 
+      if (withCross && familyMember.dayOfDeath) {
+        names += '(✝) ';
+      }
+
       return names.removeLast();
+    }
+
+    function getAge(familyMember) {
+      var today = new Date();
+      var birthDay = new Date(familyMember.birthDay);
+      var age = today.getFullYear() - birthDay.getFullYear();
+      var m = today.getMonth() - birthDay.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDay.getDate())) {
+        age--;
+      }
+      return age;
     }
   }
 })();
