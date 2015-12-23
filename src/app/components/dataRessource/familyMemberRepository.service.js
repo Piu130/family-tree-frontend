@@ -6,7 +6,7 @@
     .factory('familyMemberRepository', familyMemberRepository);
 
   /** @ngInject */
-  function familyMemberRepository($log, $http, apiHost) {
+  function familyMemberRepository($log, $http, apiHost, rootMember) {
 
     var service = {
       get: getAll,
@@ -15,7 +15,8 @@
       getSpouse: getSpouse,
       getChildren: getChildren,
       getNamesAsString: getNamesAsString,
-      getAge: getAge
+      getAge: getAge,
+      getRoot: getRoot
     };
 
     var familyMembers = [];
@@ -43,6 +44,12 @@
       function queryComplete(response) {
         return response.data;
       }
+    }
+
+    function getRoot(familyMembers) {
+      return familyMembers.find(function (familyMember) {
+        return (familyMember.firstNames[0] === rootMember.firstName && familyMember.lastNames[0] === rootMember.lastName);
+      });
     }
 
     function getInfo(id) {

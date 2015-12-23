@@ -14,9 +14,7 @@
     familyMemberRepository
       .get()
       .then(function (response) {
-        var rootMemberObject = response.find(function (familyMember) {
-          return (familyMember.firstNames[0] === rootMember.firstName && familyMember.lastNames[0] === rootMember.lastName);
-        });
+        var rootMemberObject = familyMemberRepository.getRoot(response);
 
         htmlTree += '[';
         htmlTree += getOpenFamilyMemberString();
