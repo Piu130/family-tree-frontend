@@ -1,3 +1,11 @@
-<div ng-controller="MarriedController">
+<div>
+  <div class="modal-header">
+    <h3 class="modal-title">Welche Person willst du öffnen?</h3>
+  </div>
+  <div class="modal-body">
+    <div class="list-group">
+      <a class="list-group-item" ng-href="#/person/{{ data.familyMember.id }}" ng-click="closeModal()">{{ familyMemberName }}</a>
+      <a class="list-group-item" ng-href="#/person/{{ data.spouse.id }}" ng-click="closeModal()">{{ spouseName }}</a>
+    </div>
 </div>
-
+</div>

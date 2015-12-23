@@ -2,13 +2,19 @@
   'use strict';
 
   angular
-    .module('married', [])
+    .module('married', ['ui.bootstrap'])
     .controller('MarriedController', MarriedController);
 
   /** @ngInject */
-  function MarriedController($scope, $uibModalInstance, ids) {
-    console.log(ids);
-    $uibModalInstance.close($scope.selected.item);
+  function MarriedController($scope, $uibModalInstance, data, familyMemberRepository) {
+    $scope.data = data;
+
+    $scope.familyMemberName = familyMemberRepository.getNamesAsString(data.familyMember);
+    $scope.spouseName = familyMemberRepository.getNamesAsString(data.spouse);
+
+    $scope.closeModal = function() {
+      $uibModalInstance.close();
+    };
   }
 
 })();
