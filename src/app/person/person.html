@@ -5,17 +5,34 @@
   </div>
 
   <div class="container">
-    <div><h1>{{ title }}</h1></div>
+    <div class="row"><h1>{{ title }}</h1></div>
 
     <div class="row">
-      <div class="col-sm-8">
-        <p>
-          Alter: {{ info.age }}<br />
-          Beruf: {{ info.profession }}<br />
-          Grösse: {{ info.size }}
-        </p>
+      <div class="col-xm-8">
+        <div class="row">
+          <div class="col-xs-6">
+            <dl class="dl-horizontal">
+              <dt>Geburtsdatum:</dt><dd>{{ info.birthDay | date:'dd.MM.yyyy' }}</dd>
+              <dt>Heutiges Alter:</dt><dd>{{ info.age }} Jahre</dd>
+              <dt>Grösse:</dt><dd>{{ info.size }} cm</dd>
+            </dl>
+            <hr>
+            <dl class="dl-horizontal">
+              <dt>Lehre:</dt><dd></dd>
+              <dt>Studium:</dt><dd></dd>
+              <dt>Beruf:</dt><dd>{{ info.profession }}</dd>
+            </dl>
+            <hr>
+            <dl class="dl-horizontal">
+              <dt>Hobbies:</dt><dd></dd>
+              <dt>Lieblingsfarbe:</dt><dd></dd>
+              <dt>Kindheitstraum:</dt><dd></dd>
+            </dl>
+            <hr>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-xm-4">
         <img alt="Persons image" class="img-responsive" ng-src="{{ imgSrc }}" />
       </div>
     </div>

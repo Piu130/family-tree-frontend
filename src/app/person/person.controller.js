@@ -15,6 +15,7 @@
     familyMemberRepository
       .query($stateParams.id)
       .then(function(response) {
+        $scope.info = response;
         setInfo(response.id);
         setTitle(response);
         setImage(response);
