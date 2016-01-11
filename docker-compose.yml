@@ -1,0 +1,8 @@
+# in development
+frontend:
+  image: node:5.4-onbuild
+  ports:
+   - "3000:3000"
+  volumes:
+   - .:/code
+  working_dir: "/code"
