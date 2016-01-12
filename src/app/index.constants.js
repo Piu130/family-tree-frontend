@@ -3,7 +3,7 @@
 
   angular
     .module('familyTreeFrontend')
-    .constant('apiHost', 'http://localhost:3000/api')
+    .constant('apiHost', 'http://localhost:3001/api')
     .constant('rootMember', { firstName: 'Max', lastName: 'Muster' });
 
 })();
