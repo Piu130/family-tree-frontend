@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.4.8",
-    "angular-bootstrap": "~0.14.3",
+    "angular-bootstrap": "1.0.3",
     "angular-sanitize": "~1.4.8",
     "angular-ui-router": "~0.2.15",
     "bootstrap-sass": "~3.3.6",
     "bootstrap-treeview": "~1.2.0",
-    "jquery": "~2.1.4"
+    "jquery": "~2.2.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.8"
@@ -26,7 +26,7 @@
     }
   },
   "resolutions": {
-    "jquery": "~2.1.4",
+    "jquery": "~2.2.0",
     "angular": "~1.4.8"
   }
 }
