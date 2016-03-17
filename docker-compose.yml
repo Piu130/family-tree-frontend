@@ -1,6 +1,6 @@
 # in development
 frontend:
-  image: node:5.4-onbuild
+  image: node:5.8-onbuild
   ports:
    - "3000:3000"
   volumes:
