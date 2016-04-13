@@ -5,7 +5,7 @@
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js serve",
     "prestart": "npm install --no-bin-link; ./node_modules/bower/bin/bower install --allow-root",
-    "test": "gulp test"
+    "test": "./node_modules/gulp/bin/gulp.js test"
   },
   "devDependencies": {
     "bower": "~1.7.2",
