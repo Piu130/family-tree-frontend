@@ -6,9 +6,11 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
+  function config($logProvider, $httpProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    $httpProvider.interceptors.push('authTokenInterceptor');
   }
 
 })();
