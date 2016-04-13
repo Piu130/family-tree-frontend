@@ -6,6 +6,7 @@
       'ui.router',
       'ui.bootstrap',
       'ngSanitize',
+      'ngCookies',
       'login',
       'main',
       'person'
