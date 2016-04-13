@@ -8,7 +8,7 @@
     "test": "./node_modules/gulp/bin/gulp.js test"
   },
   "devDependencies": {
-    "bower": "~1.7.2",
+    "bower": "~1.7.9",
     "browser-sync": "~2.9.11",
     "browser-sync-spa": "~1.0.3",
     "chalk": "~1.1.1",
@@ -43,10 +43,11 @@
     "karma-angular-filesort": "~1.0.0",
     "karma-coverage": "~0.5.2",
     "karma-jasmine": "~0.3.6",
-    "karma-ng-html2js-preprocessor": "~0.2.0",
+    "karma-ng-html2js-preprocessor": "~0.2.2",
     "karma-phantomjs-launcher": "~0.2.1",
     "lodash": "~3.10.1",
     "main-bower-files": "~2.9.0",
+    "npm-check-updates": "~2.6.1",
     "phantomjs": "~1.9.18",
     "uglify-save-license": "~0.4.1",
     "wiredep": "~2.2.2",
