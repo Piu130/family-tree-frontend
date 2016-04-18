@@ -6,13 +6,15 @@
     .controller('MarriedController', MarriedController);
 
   /** @ngInject */
-  function MarriedController($scope, $uibModalInstance, data, familyMemberRepository) {
-    $scope.data = data;
+  function MarriedController($uibModalInstance, data, familyMemberRepository) {
+    var vm = this;
 
-    $scope.familyMemberName = familyMemberRepository.getNamesAsString(data.familyMember);
-    $scope.spouseName = familyMemberRepository.getNamesAsString(data.spouse);
+    vm.data = data;
 
-    $scope.closeModal = function() {
+    vm.familyMemberName = familyMemberRepository.getNamesAsString(data.familyMember);
+    vm.spouseName = familyMemberRepository.getNamesAsString(data.spouse);
+
+    vm.closeModal = function() {
       $uibModalInstance.close();
     };
   }

@@ -7,15 +7,16 @@
 
   /** @ngInject */
   function PersonController($scope, $stateParams, familyMemberRepository, imageRepository) {
-    $scope.title = '';
-    $scope.imgSrc = '';
-    $scope.info = {};
+    var vm = this;
+    vm.title = '';
+    vm.imgSrc = '';
+    vm.info = {};
 
 
     familyMemberRepository
       .query($stateParams.id)
       .then(function(response) {
-        $scope.info = response;
+        vm.info = response;
         setInfo(response.id);
         setTitle(response);
         setImage(response);
@@ -23,22 +24,22 @@
       });
 
     function setTitle(person) {
-      $scope.title = familyMemberRepository.getNamesAsString(person);
+      vm.title = familyMemberRepository.getNamesAsString(person);
     }
 
     function setImage(person) {
-      $scope.imgSrc = imageRepository.getImageName(person);
+      vm.imgSrc = imageRepository.getImageName(person);
     }
 
     function setAge(person) {
-      $scope.info.age = familyMemberRepository.getAge(person);
+      vm.info.age = familyMemberRepository.getAge(person);
     }
 
     function setInfo(id) {
       familyMemberRepository
         .getInfo(id)
         .then(function(response) {
-          $scope.info = angular.extend($scope.info, response);
+          vm.info = angular.extend(vm.info, response);
         });
     }
 

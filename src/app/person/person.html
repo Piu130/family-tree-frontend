@@ -5,22 +5,22 @@
   </div>
 
   <div class="container">
-    <div class="row"><h1>{{ title }}</h1></div>
+    <div class="row"><h1>{{ person.title }}</h1></div>
 
     <div class="row">
       <div class="col-xm-8">
         <div class="row">
           <div class="col-xs-6">
             <dl class="dl-horizontal">
-              <dt>Geburtsdatum:</dt><dd>{{ info.birthDay | date:'dd.MM.yyyy' }}</dd>
-              <dt>Heutiges Alter:</dt><dd>{{ info.age }} Jahre</dd>
-              <dt>Grösse:</dt><dd>{{ info.size }} cm</dd>
+              <dt>Geburtsdatum:</dt><dd>{{ person.info.birthDay | date:'dd.MM.yyyy' }}</dd>
+              <dt>Heutiges Alter:</dt><dd>{{ person.info.age }} Jahre</dd>
+              <dt>Grösse:</dt><dd>{{ person.info.size }} cm</dd>
             </dl>
             <hr>
             <dl class="dl-horizontal">
               <dt>Lehre:</dt><dd></dd>
               <dt>Studium:</dt><dd></dd>
-              <dt>Beruf:</dt><dd>{{ info.profession }}</dd>
+              <dt>Beruf:</dt><dd>{{ person.info.profession }}</dd>
             </dl>
             <hr>
             <dl class="dl-horizontal">
@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="col-xm-4">
-        <img alt="Persons image" class="img-responsive" ng-src="{{ imgSrc }}" />
+        <img alt="Persons image" class="img-responsive" ng-src="{{ person.imgSrc }}" />
       </div>
     </div>
   </div>

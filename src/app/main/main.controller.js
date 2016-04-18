@@ -6,8 +6,11 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $state, $uibModal, familyMemberRepository, rootMember) {
-    $scope.searchText = '';
+  function MainController($state, $uibModal, familyMemberRepository) {
+    var vm = this;
+
+
+    vm.searchText = '';
 
     var htmlTree = '';
 
@@ -25,7 +28,7 @@
         htmlTree += '}';
         htmlTree += getCloseChildrenString();
 
-        $('#tree').treeview(
+        angular.element('#tree').treeview(
           {
             data: htmlTree,
             enableLinks: false,
@@ -64,7 +67,7 @@
 
       var spouse = familyMemberRepository.getSpouse(familyMember.id);
 
-      familyMemberString += '"familyMember":' + JSON.stringify(familyMember) + ',"text":"';
+      familyMemberString += '"familyMember":' + angular.toJson(familyMember) + ',"text":"';
       familyMemberString += familyMemberRepository.getNamesAsString(familyMember, true);
       if (spouse) {
         familyMemberString += ' & ';
@@ -72,7 +75,7 @@
       }
 
       if (spouse) {
-        familyMemberString += '","id":["' + familyMember.id + '","' + spouse.id + '"],' + '"spouse":' + JSON.stringify(spouse) + ',';
+        familyMemberString += '","id":["' + familyMember.id + '","' + spouse.id + '"],' + '"spouse":' + angular.toJson(spouse) + ',';
       } else {
         familyMemberString += '","id":"' + familyMember.id + '",';
       }
@@ -96,13 +99,13 @@
       return ']';
     }
 
-    $scope.search = function() {
-      $('#tree').treeview('search', [$scope.searchText]);
+    vm.search = function() {
+      angular.element('#tree').treeview('search', [vm.searchText]);
     };
 
     function onNodeSelected(event, data) {
 
-      if(Array.isArray(data.id)) {
+      if(angular.isArray(data.id)) {
         var modalInstance = $uibModal.open({
           templateUrl: 'app/main/templates/married.template.html',
           controller: 'MarriedController',
@@ -115,7 +118,7 @@
 
         modalInstance.result
           .then(function (selectedItem) {
-            $scope.selected = selectedItem;
+            vm.selected = selectedItem;
           });
       } else {
         $state.go('person', {
