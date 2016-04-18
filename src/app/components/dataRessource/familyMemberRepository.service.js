@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -68,17 +68,17 @@
     }
 
     function getSpouse(id) {
-      return familyMembers.find(function(element) {
+      return familyMembers.find(function (element) {
         return element.familyMemberId === id;
       });
     }
 
     function getChildren(id) {
-      var children = familyMembers.filter(function(element) {
+      var children = familyMembers.filter(function (element) {
         return element.childrenId === id;
       });
 
-      if(children.length > 0) {
+      if (children.length > 0) {
         return children;
       }
 
@@ -88,8 +88,12 @@
     function getNamesAsString(familyMember, withCross) {
       var names = '';
 
-      familyMember.firstNames.forEach(function(firstName) { names += firstName + ' '; });
-      familyMember.lastNames.forEach(function(lastName) { names += lastName + ' '; });
+      familyMember.firstNames.forEach(function (firstName) {
+        names += firstName + ' ';
+      });
+      familyMember.lastNames.forEach(function (lastName) {
+        names += lastName + ' ';
+      });
 
       if (withCross && familyMember.dayOfDeath) {
         names += '(✝) ';

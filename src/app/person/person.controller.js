@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -15,7 +15,7 @@
 
     familyMemberRepository
       .query($stateParams.id)
-      .then(function(response) {
+      .then(function (response) {
         vm.info = response;
         setInfo(response.id);
         setTitle(response);
@@ -38,7 +38,7 @@
     function setInfo(id) {
       familyMemberRepository
         .getInfo(id)
-        .then(function(response) {
+        .then(function (response) {
           vm.info = angular.extend(vm.info, response);
         });
     }

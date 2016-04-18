@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -45,7 +45,7 @@
       if (children) {
         htmlTree += getOpenChildrenString();
         children
-          .sort(function(a, b) {
+          .sort(function (a, b) {
             return a.order > b.order;
           })
           .forEach(function (child) {
@@ -71,7 +71,7 @@
       familyMemberString += familyMemberRepository.getNamesAsString(familyMember, true);
       if (spouse) {
         familyMemberString += ' & ';
-        familyMemberString += familyMemberRepository.getNamesAsString(spouse,true);
+        familyMemberString += familyMemberRepository.getNamesAsString(spouse, true);
       }
 
       if (spouse) {
@@ -99,13 +99,13 @@
       return ']';
     }
 
-    vm.search = function() {
+    vm.search = function () {
       angular.element('#tree').treeview('search', [vm.searchText]);
     };
 
     function onNodeSelected(event, data) {
 
-      if(angular.isArray(data.id)) {
+      if (angular.isArray(data.id)) {
         var modalInstance = $uibModal.open({
           templateUrl: 'app/main/templates/married.template.html',
           controller: 'MarriedController',

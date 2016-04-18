@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -15,7 +15,7 @@
 
     }
 
-    FamilyMember.prototype.getAge = function() {
+    FamilyMember.prototype.getAge = function () {
       var today = new Date();
       var birthDay = new Date(this.birthDay);
       var age = today.getFullYear() - birthDay.getFullYear();

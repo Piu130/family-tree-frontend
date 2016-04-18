@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -8,9 +8,9 @@
   /** @ngInject */
   function AuthTokenInterceptor($cookies, apiHost) {
     return {
-      'request': function(config) {
+      'request': function (config) {
 
-        if($cookies.family_tree_access_token && config.url.startsWith(apiHost)) {
+        if ($cookies.family_tree_access_token && config.url.startsWith(apiHost)) {
           config.headers['Authorization'] = $cookies.family_tree_access_token;
         }
 

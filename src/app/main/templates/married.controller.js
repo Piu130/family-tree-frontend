@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -14,7 +14,7 @@
     vm.familyMemberName = familyMemberRepository.getNamesAsString(data.familyMember);
     vm.spouseName = familyMemberRepository.getNamesAsString(data.spouse);
 
-    vm.closeModal = function() {
+    vm.closeModal = function () {
       $uibModalInstance.close();
     };
   }
