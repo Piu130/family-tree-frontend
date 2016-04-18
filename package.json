@@ -1,11 +1,13 @@
 {
-  "name": "familyTreeFrontend",
+  "name": "family-tree-frontend",
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js serve",
     "prestart": "npm install --no-bin-link; ./node_modules/bower/bin/bower install --allow-root",
-    "test": "./node_modules/gulp/bin/gulp.js test"
+    "test": "./node_modules/gulp/bin/gulp.js test",
+    "checkNpmUpdates": "./node_modules/npm-check-updates/bin/npm-check-updates",
+    "checkBowerUpdates": "./node_modules/npm-check-updates/bin/npm-check-updates -m bower"
   },
   "devDependencies": {
     "bower": "~1.7.9",
