@@ -12,8 +12,8 @@
         <div class="row">
           <div class="col-xs-6">
             <dl class="dl-horizontal">
-              <dt>Geburtsdatum:</dt><dd>{{ person.info.birthDay | dash | date:'dd.MM.yyyy' }}</dd>
-              <dt>Heutiges Alter:</dt><dd>{{ person.info.age | dash: 'Jahre' }}</dd>
+              <dt>Geburtsdatum:</dt><dd>{{ person.info.birthDay | dash | date: 'dd.MM.yyyy' }}</dd>
+              <dt>Alter:</dt><dd>{{ person.info.age | dash: 'Jahre' }}</dd>
               <dt>Grösse:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
             </dl>
             <hr>
