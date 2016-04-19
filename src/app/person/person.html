@@ -12,21 +12,21 @@
         <div class="row">
           <div class="col-xs-6">
             <dl class="dl-horizontal">
-              <dt>Geburtsdatum:</dt><dd>{{ person.info.birthDay | date:'dd.MM.yyyy' }}</dd>
-              <dt>Heutiges Alter:</dt><dd>{{ person.info.age }} Jahre</dd>
-              <dt>Grösse:</dt><dd>{{ person.info.size }} cm</dd>
+              <dt>Geburtsdatum:</dt><dd>{{ person.info.birthDay | dash | date:'dd.MM.yyyy' }}</dd>
+              <dt>Heutiges Alter:</dt><dd>{{ person.info.age | dash: 'Jahre' }}</dd>
+              <dt>Grösse:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
             </dl>
             <hr>
             <dl class="dl-horizontal">
-              <dt>Lehre:</dt><dd></dd>
-              <dt>Studium:</dt><dd></dd>
-              <dt>Beruf:</dt><dd>{{ person.info.profession }}</dd>
+              <dt>Lehre:</dt><dd>{{ person.info.apprenticeship | dash }}</dd>
+              <dt>Studium:</dt><dd>{{ person.info.studies | dash }}</dd>
+              <dt>Beruf:</dt><dd>{{ person.info.profession | dash }}</dd>
             </dl>
             <hr>
             <dl class="dl-horizontal">
-              <dt>Hobbies:</dt><dd></dd>
-              <dt>Lieblingsfarbe:</dt><dd></dd>
-              <dt>Kindheitstraum:</dt><dd></dd>
+              <dt>Hobbies:</dt><dd>{{ person.info.hobby | dash }}</dd>
+              <dt>Lieblingsfarbe:</dt><dd>{{ person.info.favouriteColor | dash }}</dd>
+              <dt>Kindheitstraum:</dt><dd>{{ person.info.childhoodDream | dash }}</dd>
             </dl>
             <hr>
           </div>
