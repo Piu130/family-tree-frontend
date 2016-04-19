@@ -103,7 +103,7 @@
     }
 
     function getAge(familyMember) {
-      if(!familyMember.birthDay) {
+      if (!familyMember.birthDay) {
         return null;
       }
 
@@ -111,10 +111,10 @@
       var birthDay = new Date(familyMember.birthDay);
       var age = today.getFullYear() - birthDay.getFullYear();
       var m = today.getMonth() - birthDay.getMonth();
+
       if (m < 0 || (m === 0 && today.getDate() < birthDay.getDate())) {
         age--;
       }
-
 
       return age;
     }
