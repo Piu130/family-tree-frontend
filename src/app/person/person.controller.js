@@ -6,7 +6,7 @@
     .controller('PersonController', PersonController);
 
   /** @ngInject */
-  function PersonController($scope, $stateParams, familyMemberRepository, imageRepository) {
+  function PersonController($stateParams, familyMemberRepository, imageRepository) {
     var vm = this;
     vm.title = '';
     vm.imgSrc = '';
