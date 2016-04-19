@@ -2,17 +2,46 @@
   'use strict';
 
   angular
-    .module('main', ['married'])
+    .module('main', [
+      'ui.bootstrap',
+      'married'
+    ])
     .controller('MainController', MainController);
 
   /** @ngInject */
   function MainController($state, $uibModal, familyMemberRepository) {
     var vm = this;
 
-
     vm.searchText = '';
-
     var htmlTree = '';
+
+    vm.search = function () {
+      angular.element('#tree').treeview('search', [vm.searchText]);
+    };
+
+    function onNodeSelected(event, data) {
+
+      if (angular.isArray(data.id)) {
+        var modalInstance = $uibModal.open({
+          templateUrl: 'app/main/templates/married.template.html',
+          controller: 'MarriedController as married',
+          resolve: {
+            data: function () {
+              return data;
+            }
+          }
+        });
+
+        modalInstance.result
+          .then(function (selectedItem) {
+            vm.selected = selectedItem;
+          });
+      } else {
+        $state.go('person', {
+          id: data.id
+        });
+      }
+    }
 
     familyMemberRepository
       .get()
@@ -97,34 +126,6 @@
 
     function getCloseChildrenString() {
       return ']';
-    }
-
-    vm.search = function () {
-      angular.element('#tree').treeview('search', [vm.searchText]);
-    };
-
-    function onNodeSelected(event, data) {
-
-      if (angular.isArray(data.id)) {
-        var modalInstance = $uibModal.open({
-          templateUrl: 'app/main/templates/married.template.html',
-          controller: 'MarriedController',
-          resolve: {
-            data: function () {
-              return data;
-            }
-          }
-        });
-
-        modalInstance.result
-          .then(function (selectedItem) {
-            vm.selected = selectedItem;
-          });
-      } else {
-        $state.go('person', {
-          id: data.id
-        });
-      }
     }
   }
 
