@@ -2,11 +2,13 @@
   'use strict';
 
   angular
-    .module('person', [])
+    .module('person', [
+      'ui.bootstrap'
+    ])
     .controller('PersonController', PersonController);
 
   /** @ngInject */
-  function PersonController($stateParams, familyMemberRepository, imageRepository) {
+  function PersonController($stateParams, growl, familyMemberRepository, imageRepository) {
     var vm = this;
     vm.title = '';
     vm.imgSrc = '';
@@ -40,6 +42,9 @@
         .getInfo(id)
         .then(function (response) {
           vm.info = angular.extend(vm.info, response);
+        })
+        .catch(function() {
+          growl.error('Keine Daten zu dieser Person gefunden!', { ttl: 5000, disableCountDown: true, disableIcons: true });
         });
     }
 
