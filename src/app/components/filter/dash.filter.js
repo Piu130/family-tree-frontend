@@ -13,7 +13,7 @@
       }
 
       if(!input) {
-        return '- ' + unit;
+        return '-';
       }
 
       return input + unit;
