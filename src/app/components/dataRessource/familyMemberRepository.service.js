@@ -6,7 +6,7 @@
     .factory('familyMemberRepository', familyMemberRepository);
 
   /** @ngInject */
-  function familyMemberRepository($log, $http, apiHost, rootMember) {
+  function familyMemberRepository($http, apiHost, rootMember) {
 
     var service = {
       get: getAll,
@@ -26,24 +26,17 @@
     function getAll() {
       return $http
         .get(apiHost + '/familyMembers')
-        .then(getAllComplete)
-        .catch(getFailed);
-
-      function getAllComplete(response) {
-        familyMembers = response.data;
-        return response.data;
-      }
+        .then(_getComplete)
+        .then(function(data) {
+          familyMembers = data;
+          return data;
+        });
     }
 
     function query(id) {
       return $http
         .get(apiHost + '/familyMembers/' + id)
-        .then(queryComplete)
-        .catch(getFailed);
-
-      function queryComplete(response) {
-        return response.data;
-      }
+        .then(_getComplete);
     }
 
     function getRoot(familyMembers) {
@@ -55,16 +48,7 @@
     function getInfo(id) {
       return $http
         .get(apiHost + '/familyMembers/' + id + '/info')
-        .then(getInfoComplete)
-        .catch(getFailed);
-
-      function getInfoComplete(response) {
-        return response.data;
-      }
-    }
-
-    function getFailed(error) {
-      $log.error('XHR Failed for get.\n' + angular.toJson(error.data, true));
+        .then(_getComplete);
     }
 
     function getSpouse(id) {
@@ -119,4 +103,9 @@
       return age;
     }
   }
+
+  function _getComplete(response) {
+    return response.data;
+  }
+
 })();
