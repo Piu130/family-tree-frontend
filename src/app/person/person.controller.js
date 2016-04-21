@@ -43,8 +43,12 @@
         .then(function (response) {
           vm.info = angular.extend(vm.info, response);
         })
-        .catch(function() {
-          growl.error('Keine Daten zu dieser Person gefunden!', { ttl: 5000, disableCountDown: true, disableIcons: true });
+        .catch(function () {
+          growl.error('Keine Daten zu dieser Person gefunden!', {
+            ttl: 3000,
+            disableCountDown: true,
+            disableIcons: true
+          });
         });
     }
 
