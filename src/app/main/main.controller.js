@@ -99,8 +99,10 @@
       familyMemberString += '"familyMember":' + angular.toJson(familyMember) + ',"text":"';
       familyMemberString += familyMemberRepository.getNamesAsString(familyMember, true);
       if (spouse) {
-        familyMemberString += ' & ';
+        familyMemberString += ' <span class=\'no-text-wrap\'>';
+        familyMemberString += '& ';
         familyMemberString += familyMemberRepository.getNamesAsString(spouse, true);
+        familyMemberString += '</span>';
       }
 
       if (spouse) {
