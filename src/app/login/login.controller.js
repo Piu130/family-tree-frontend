@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController() {
+  function LoginController(loginService, $state) {
     var vm = this;
 
     vm.user = {
@@ -15,8 +15,14 @@
       rememberMe: false
     };
 
-    vm.do = function() {
-      // do login
+    vm.do = function () {
+      loginService
+        .login(vm.user)
+        .then(function () {
+          $state.go('tree');
+        })
+        .catch(function (error) {
+        });
     };
 
   }
