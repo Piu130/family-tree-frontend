@@ -16,22 +16,25 @@
     return service;
 
     function login(user) {
+      // 3h in seconds
+      var ttl = 10800;
+      if (user.rememberMe) {
+        // 4 weeks in seconds
+        ttl = 2419200;
+      }
+
       var credentials = {
         email: user.email,
-        password: user.password
+        password: user.password,
+        ttl: ttl
       };
 
       return $http
         .post(apiHost + '/users/login', credentials)
         .then(function (response) {
-          var expirationDate = null;
+          var expires = new Date().getTime() + response.data.ttl * 1000;
 
-          if (user.rememberMe) {
-            expirationDate = new Date();
-            expirationDate.setMonth(expirationDate.getMonth() + 1);
-          }
-
-          $cookies.put('family_tree_access_token', response.data.id, { expires: expirationDate });
+          $cookies.put('family_tree_access_token', response.data.id, { expires: new Date(expires) });
           return response;
         });
     }
