@@ -33,7 +33,7 @@
       return $http
         .post(apiHost + '/users/logout')
         .then(function (response) {
-          delete $cookies.remove('family_tree_access_token');
+          $cookies.remove('family_tree_access_token');
           return response;
         });
     }
