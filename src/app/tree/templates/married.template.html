@@ -5,8 +5,8 @@
   </div>
   <div class="modal-body">
     <div class="list-group">
-      <a class="list-group-item" ng-href="#/person/{{ married.data.familyMember.id }}" ng-click="married.closeModal()">{{ married.familyMemberName }}</a>
-      <a class="list-group-item" ng-href="#/person/{{ married.data.spouse.id }}" ng-click="married.closeModal()">{{ married.spouseName }}</a>
+      <a class="list-group-item" ui-sref="person({ id: '{{ married.data.familyMember.id }}' })" ng-click="married.closeModal()">{{ married.familyMemberName }}</a>
+      <a class="list-group-item" ui-sref="person({ id: '{{ married.data.spouse.id }}' })" ng-click="married.closeModal()">{{ married.spouseName }}</a>
     </div>
 </div>
 </div>
