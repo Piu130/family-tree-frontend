@@ -6,8 +6,8 @@
     "start": "./node_modules/gulp/bin/gulp.js serve",
     "prestart": "npm install --no-bin-link; ./node_modules/bower/bin/bower install --allow-root",
     "test": "./node_modules/gulp/bin/gulp.js test",
-    "checkNpmUpdates": "./node_modules/npm-check-updates/bin/npm-check-updates",
-    "checkBowerUpdates": "./node_modules/npm-check-updates/bin/npm-check-updates -m bower"
+    "checkNpmUpdates": "./node_modules/npm-check-updates/bin/ncu",
+    "checkBowerUpdates": "./node_modules/npm-check-updates/bin/ncu -m bower"
   },
   "devDependencies": {
     "bower": "~1.7.9",
@@ -49,8 +49,8 @@
     "karma-phantomjs-launcher": "~0.2.1",
     "lodash": "~3.10.1",
     "main-bower-files": "~2.9.0",
-    "npm-check-updates": "~2.6.1",
-    "phantomjs": "~1.9.18",
+    "npm-check-updates": "~2.6.3",
+    "phantomjs": "~1.9.20",
     "uglify-save-license": "~0.4.1",
     "wiredep": "~2.2.2",
     "wrench": "~1.5.8"
