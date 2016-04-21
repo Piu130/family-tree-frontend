@@ -24,7 +24,14 @@
       return $http
         .post(apiHost + '/users/login', credentials)
         .then(function (response) {
-          $cookies.put('family_tree_access_token', response.data.id);
+          var expirationDate = null;
+
+          if (user.rememberMe) {
+            expirationDate = new Date();
+            expirationDate.setMonth(expirationDate.getMonth() + 1);
+          }
+
+          $cookies.put('family_tree_access_token', response.data.id, { expires: expirationDate });
           return response;
         });
     }
