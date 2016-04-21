@@ -9,7 +9,7 @@
       'ngCookies',
       'angular-growl',
       'login',
-      'main',
+      'tree',
       'person'
     ]);
 

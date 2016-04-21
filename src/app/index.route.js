@@ -8,11 +8,11 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
+      .state('tree', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        templateUrl: 'app/tree/tree.html',
+        controller: 'TreeController',
+        controllerAs: 'tree'
       })
       .state('person', {
         url: '/person/:id',

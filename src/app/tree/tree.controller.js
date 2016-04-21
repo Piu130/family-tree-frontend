@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('main', [
+    .module('tree', [
       'ui.bootstrap',
       'married'
     ])
-    .controller('MainController', MainController);
+    .controller('TreeController', TreeController);
 
   /** @ngInject */
-  function MainController($state, $uibModal, familyMemberRepository) {
+  function TreeController($state, $uibModal, familyMemberRepository) {
     var vm = this;
 
     vm.searchText = '';
@@ -23,7 +23,7 @@
 
       if (angular.isArray(data.id)) {
         var modalInstance = $uibModal.open({
-          templateUrl: 'app/main/templates/married.template.html',
+          templateUrl: 'app/tree/templates/married.template.html',
           controller: 'MarriedController as married',
           resolve: {
             data: function () {
