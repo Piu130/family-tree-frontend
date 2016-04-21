@@ -7,6 +7,7 @@
       'ui.bootstrap',
       'ngSanitize',
       'ngCookies',
+      'angular-loading-bar',
       'angular-growl',
       'login',
       'tree',
