@@ -52,8 +52,7 @@
     "npm-check-updates": "~2.6.3",
     "phantomjs": "~1.9.20",
     "uglify-save-license": "~0.4.1",
-    "wiredep": "~2.2.2",
-    "wrench": "~1.5.8"
+    "wiredep": "~2.2.2"
   },
   "engines": {
     "node": ">=5.10.0"
