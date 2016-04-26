@@ -25,6 +25,12 @@
         templateUrl: 'app/login/login.html',
         controller: 'LoginController',
         controllerAs: 'login'
+      })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'app/admin/admin.html',
+        controller: 'AdminController',
+        controllerAs: 'admin'
       });
 
     $urlRouterProvider.otherwise('/');

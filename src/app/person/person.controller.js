@@ -9,7 +9,7 @@
 
   /** @ngInject */
   function PersonController($stateParams, growl, familyMemberRepository, imageRepository) {
-    var vm = this;
+    const vm = this;
     vm.title = '';
     vm.imgSrc = '';
     vm.info = {};

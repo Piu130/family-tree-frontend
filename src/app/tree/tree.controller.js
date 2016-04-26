@@ -10,10 +10,10 @@
 
   /** @ngInject */
   function TreeController($state, $uibModal, familyMemberRepository) {
-    var vm = this;
+    const vm = this;
 
     vm.searchText = '';
-    var htmlTree = '';
+    let htmlTree = '';
 
     vm.search = function () {
       angular.element('#tree').treeview('search', [vm.searchText]);
@@ -22,7 +22,7 @@
     function onNodeSelected(event, data) {
 
       if (angular.isArray(data.id)) {
-        var modalInstance = $uibModal.open({
+        const modalInstance = $uibModal.open({
           templateUrl: 'app/tree/templates/married.template.html',
           controller: 'MarriedController as married',
           resolve: {
@@ -46,7 +46,7 @@
     familyMemberRepository
       .get()
       .then(function (response) {
-        var rootMemberObject = familyMemberRepository.getRoot(response);
+        const rootMemberObject = familyMemberRepository.getRoot(response);
 
         htmlTree += '[';
         htmlTree += getOpenFamilyMemberString();
@@ -69,7 +69,7 @@
       });
 
     function addChildren(id) {
-      var children = familyMemberRepository.getChildren(id);
+      const children = familyMemberRepository.getChildren(id);
 
       if (children) {
         htmlTree += getOpenChildrenString();
@@ -85,16 +85,15 @@
           });
         htmlTree = htmlTree.removeLast();
         htmlTree += getCloseChildrenString();
-      }
-      else {
+      } else {
         htmlTree = htmlTree.removeLast();
       }
     }
 
     function getFamilyMemberString(familyMember) {
-      var familyMemberString = '';
+      let familyMemberString = '';
 
-      var spouse = familyMemberRepository.getSpouse(familyMember.id);
+      const spouse = familyMemberRepository.getSpouse(familyMember.id);
 
       familyMemberString += '"familyMember":' + angular.toJson(familyMember) + ',"text":"';
       familyMemberString += familyMemberRepository.getNamesAsString(familyMember, true);

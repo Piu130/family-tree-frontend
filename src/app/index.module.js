@@ -11,7 +11,8 @@
       'angular-growl',
       'login',
       'tree',
-      'person'
+      'person',
+      'admin'
     ]);
 
 })();

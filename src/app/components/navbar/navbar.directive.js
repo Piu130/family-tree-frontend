@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function acmeNavbar() {
-    var directive = {
+    const directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       controller: NavbarController,
@@ -19,7 +19,7 @@
 
     /** @ngInject */
     function NavbarController(loginService, $state, growl) {
-      var vm = this;
+      const vm = this;
 
       vm.logout = function () {
         loginService

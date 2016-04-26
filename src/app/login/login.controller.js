@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function LoginController(loginService, $state, growl) {
-    var vm = this;
+    const vm = this;
 
     vm.user = {
       email: '',

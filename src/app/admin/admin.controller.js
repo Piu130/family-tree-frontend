@@ -1,3 +1,14 @@
-/**
- * Created by ekf on 19.04.16.
- */
+(function () {
+  'use strict';
+
+  angular
+    .module('admin', [])
+    .controller('AdminController', AdminController);
+
+  /** @ngInject */
+  function AdminController() {
+    const vm = this;
+
+  }
+
+})();

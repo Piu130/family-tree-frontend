@@ -8,7 +8,7 @@
   /** @ngInject */
   function familyMemberRepository($http, apiHost, rootMember) {
 
-    var service = {
+    const service = {
       get: getAll,
       query: query,
       getInfo: getInfo,
@@ -19,7 +19,7 @@
       getRoot: getRoot
     };
 
-    var familyMembers = [];
+    let familyMembers = [];
 
     return service;
 
@@ -58,7 +58,7 @@
     }
 
     function getChildren(id) {
-      var children = familyMembers.filter(function (element) {
+      const children = familyMembers.filter(function (element) {
         return element.childrenId === id;
       });
 
@@ -70,7 +70,7 @@
     }
 
     function getNamesAsString(familyMember, withCross) {
-      var names = '';
+      let names = '';
 
       familyMember.firstNames.forEach(function (firstName) {
         names += firstName + ' ';
@@ -91,10 +91,10 @@
         return null;
       }
 
-      var today = new Date();
-      var birthDay = new Date(familyMember.birthDay);
-      var age = today.getFullYear() - birthDay.getFullYear();
-      var m = today.getMonth() - birthDay.getMonth();
+      const today = new Date();
+      const birthDay = new Date(familyMember.birthDay);
+      let age = today.getFullYear() - birthDay.getFullYear();
+      const m = today.getMonth() - birthDay.getMonth();
 
       if (m < 0 || (m === 0 && today.getDate() < birthDay.getDate())) {
         age--;

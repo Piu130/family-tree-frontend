@@ -16,10 +16,11 @@
     }
 
     FamilyMember.prototype.getAge = function () {
-      var today = new Date();
-      var birthDay = new Date(this.birthDay);
-      var age = today.getFullYear() - birthDay.getFullYear();
-      var m = today.getMonth() - birthDay.getMonth();
+      const today = new Date();
+      const birthDay = new Date(this.birthDay);
+      let age = today.getFullYear() - birthDay.getFullYear();
+      const m = today.getMonth() - birthDay.getMonth();
+
       if (m < 0 || (m === 0 && today.getDate() < birthDay.getDate())) {
         age--;
       }
