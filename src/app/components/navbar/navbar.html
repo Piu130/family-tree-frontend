@@ -1,12 +1,18 @@
 <nav class="navbar navbar-static-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand" ui-sref="tree">
         <span class="glyphicon glyphicon-home"></span> Stammbaum
       </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+    <div class="collapse navbar-collapse" id="main-navbar" uib-collapse="!isCollapsed">
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="tree">Home</a></li>
       </ul>
