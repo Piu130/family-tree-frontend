@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function MarriedController($uibModalInstance, data, familyMemberRepository) {
-    var vm = this;
+    const vm = this;
 
     vm.data = data;
 

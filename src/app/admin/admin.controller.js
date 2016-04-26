@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function AdminController() {
-    var vm = this;
+    const vm = this;
 
   }
 

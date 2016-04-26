@@ -8,7 +8,7 @@
   /** @ngInject */
   function loginService($http, $cookies, apiHost) {
 
-    var service = {
+    const service = {
       login: login,
       logout: logout
     };
@@ -17,13 +17,10 @@
 
     function login(user) {
       // 3h in seconds
-      var ttl = 10800;
-      if (user.rememberMe) {
-        // 4 weeks in seconds
-        ttl = 2419200;
-      }
+      // if rememberMe 4 weeks else 3h in seconds
+      const ttl = user.rememberMe ? 2419200 : 10800;
 
-      var credentials = {
+      const credentials = {
         email: user.email,
         password: user.password,
         ttl: ttl
@@ -32,7 +29,7 @@
       return $http
         .post(apiHost + '/users/login', credentials)
         .then(function (response) {
-          var expires = new Date().getTime() + response.data.ttl * 1000;
+          const expires = new Date().getTime() + response.data.ttl * 1000;
 
           $cookies.put('family_tree_access_token', response.data.id, { expires: new Date(expires) });
           return response;
