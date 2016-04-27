@@ -12,6 +12,7 @@
       'login',
       'tree',
       'person',
+      'emblem',
       'admin'
     ]);
 
