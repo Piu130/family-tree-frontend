@@ -12,15 +12,13 @@
       templateUrl: 'app/components/emblemGenerator/emblemGenerator.html',
       controller: EmblemController,
       controllerAs: 'emblem',
-      bindToController: { width: '@' }
+      bindToController: { width: '@' },
+      scope: true
     };
 
     /** @ngInject */
     function EmblemController() {
       const vm = this;
-
-      // Images width
-      vm.width = 300;
 
       vm.center = vm.width / 2;
 
