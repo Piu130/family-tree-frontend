@@ -3,12 +3,16 @@
   "plugins": ["angular"],
   "env": {
     "browser": true,
-    "jasmine": true
+    "jasmine": true,
+    "es6": true
   },
   "globals": {
     "angular": true,
     "module": true,
     "inject": true,
     "$": true
+  },
+  "parserOptions" : {
+    "ecmaVersion": 6
   }
 }
