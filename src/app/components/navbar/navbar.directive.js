@@ -7,15 +7,13 @@
 
   /** @ngInject */
   function acmeNavbar() {
-    const directive = {
+    return {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       controller: NavbarController,
       controllerAs: 'navbar',
       bindToController: true
     };
-
-    return directive;
 
     /** @ngInject */
     function NavbarController(loginService, $state, growl) {
