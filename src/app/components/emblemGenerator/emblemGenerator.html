@@ -1,5 +1,5 @@
 <svg width="{{emblem.width}}" height="{{emblem.width}}">
   <polygon points="{{emblem.coordsToString('emblemRectCoords')}}" fill="black"></polygon>
-  <circle cx="{{emblem.center}}" cy="{{emblem.center}}" r="{{emblem.center - emblem.xmargin}}" fill="black"></circle>
-  <polygon points="{{emblem.coordsToString('starCoords')}}" fill="gold" transform="translate(0,{{-emblem.xmargin}})"></polygon>
+  <circle cx="{{emblem.center}}" cy="{{emblem.center}}" r="{{emblem.center - emblem.xPadding}}" fill="black"></circle>
+  <polygon points="{{emblem.coordsToString('starCoords')}}" fill="gold" transform="translate(0,{{-emblem.xPadding}})"></polygon>
 </svg>
