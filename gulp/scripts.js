@@ -23,4 +23,4 @@ function buildScripts() {
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.size())
-};
+}
