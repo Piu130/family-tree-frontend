@@ -14,8 +14,8 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-sm-pull-6">
         <dl class="dl-horizontal">
-          <dt>Geburtsdatum:</dt><dd>{{ person.info.birthDay | dash | date: 'dd.MM.yyyy' }}</dd>
-          <dt>Alter:</dt><dd>{{ person.info.age | dash: 'Jahre' }}</dd>
+          <dt>Geburtsdatum:</dt><dd>{{ person.info.birthday | dash | date: 'dd.MM.yyyy' }}</dd>
+          <dt>Alter:</dt><dd>{{ person.info.age | dash: ' Jahre' }}</dd>
           <dt>Grösse:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
         </dl>
         <hr>

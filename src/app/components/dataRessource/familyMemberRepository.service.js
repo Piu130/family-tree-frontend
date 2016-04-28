@@ -86,17 +86,17 @@
       return names.removeLast();
     }
 
-    function getAge(familyMember) {
-      if (!familyMember.birthDay) {
+    function getAge(birthday) {
+      if (!birthday) {
         return null;
       }
 
       const today = new Date();
-      const birthDay = new Date(familyMember.birthDay);
-      let age = today.getFullYear() - birthDay.getFullYear();
-      const m = today.getMonth() - birthDay.getMonth();
+      const birthdayDate = new Date(birthday);
+      let age = today.getFullYear() - birthdayDate.getFullYear();
+      const m = today.getMonth() - birthdayDate.getMonth();
 
-      if (m < 0 || (m === 0 && today.getDate() < birthDay.getDate())) {
+      if (m < 0 || (m === 0 && today.getDate() < birthdayDate.getDate())) {
         age--;
       }
 

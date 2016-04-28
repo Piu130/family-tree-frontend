@@ -22,7 +22,6 @@
         setInfo(response.id);
         setTitle(response);
         setImage(response);
-        setAge(response);
       });
 
     function setTitle(person) {
@@ -33,15 +32,12 @@
       vm.imgSrc = imageRepository.getImageName(person);
     }
 
-    function setAge(person) {
-      vm.info.age = familyMemberRepository.getAge(person);
-    }
-
     function setInfo(id) {
       familyMemberRepository
         .getInfo(id)
         .then(function (response) {
           vm.info = angular.extend(vm.info, response);
+          vm.info.age = familyMemberRepository.getAge(response.birthday);
         })
         .catch(function () {
           growl.error('Keine Daten zu dieser Person gefunden!', {
