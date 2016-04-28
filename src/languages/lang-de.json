@@ -2,6 +2,7 @@
   "NAVBAR": {
     "FAMILY_TREE": "Stammbaum",
     "CREST": "Wappen",
+    "LANGUAGES": "Sprachen",
     "SOMETHING_WENT_WRONG": "Etwas ist schief gegangen. Versuchen Sie es noch einmal.",
     "COULD_NOT_LOAD_LANG": "Die Sprache konnte nicht geladen werden."
   },
