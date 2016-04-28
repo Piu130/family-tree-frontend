@@ -30,6 +30,7 @@
 
     function setImage(person) {
       vm.imgSrc = imageRepository.getImageName(person);
+      vm.imgSrc = getImageUrl();
     }
 
     function setInfo(id) {
@@ -46,6 +47,19 @@
             disableIcons: true
           });
         });
+    }
+
+    // Test several image formats
+    const images = [
+      'https://pixabay.com/static/uploads/photo/2016/01/09/16/58/body-1130559_960_720.jpg',
+      'https://pixabay.com/static/uploads/photo/2016/04/04/21/49/girl-1308309_960_720.jpg',
+      'https://pixabay.com/static/uploads/photo/2016/03/31/17/53/girl-1293985_960_720.jpg',
+      'https://pixabay.com/static/uploads/photo/2014/11/15/14/45/girl-532051_960_720.jpg'
+    ];
+
+    var imgNumber = Math.floor(Math.random() * images.length);
+    function getImageUrl() {
+      return images[imgNumber];
     }
 
   }
