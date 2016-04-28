@@ -9,26 +9,25 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-push-6">
-        <img alt="Person" class="img-responsive" src="http://thumbs.dreamstime.com/x/confused-woman-people-feeling-confusion-chaos-indecisive-disorientated-bewildered-stressed-headache-over-32823005.jpg" />
-        <!--<img alt="persons image" class="img-responsive" ng-src="{{ person.imgSrc }}" />-->
+        <img alt="Person" class="img-responsive" ng-src="{{ person.imgSrc }}" />
       </div>
       <div class="col-xs-12 col-sm-6 col-sm-pull-6">
         <dl class="dl-horizontal">
-          <dt>Geburtsdatum:</dt><dd>{{ person.info.birthDay | dash | date: 'dd.MM.yyyy' }}</dd>
-          <dt>Alter:</dt><dd>{{ person.info.age | dash: 'Jahre' }}</dd>
-          <dt>Grösse:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
+          <dt>{{ 'PERSON.BIRTHDAY' | translate }}:</dt><dd>{{ person.info.birthday | dash | date: 'dd.MM.yyyy' }}</dd>
+          <dt>{{ 'PERSON.AGE' | translate }}:</dt><dd>{{ person.info.age | dash: 'PERSON.YEARS':true }}</dd>
+          <dt>{{ 'PERSON.SIZE' | translate }}:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
         </dl>
         <hr>
         <dl class="dl-horizontal">
-          <dt>Lehre:</dt><dd>{{ person.info.apprenticeships.join(', ') | dash }}</dd>
-          <dt>Studium:</dt><dd>{{ person.info.studies.join(', ') | dash }}</dd>
-          <dt>Beruf:</dt><dd>{{ person.info.professions.join(', ') | dash }}</dd>
+          <dt>{{ 'PERSON.APPRENTICESHIPS' | translate }}:</dt><dd>{{ person.info.apprenticeships.join(', ') | dash }}</dd>
+          <dt>{{ 'PERSON.STUDIES' | translate }}:</dt><dd>{{ person.info.studies.join(', ') | dash }}</dd>
+          <dt>{{ 'PERSON.PROFESSIONS' | translate }}:</dt><dd>{{ person.info.professions.join(', ') | dash }}</dd>
         </dl>
         <hr>
         <dl class="dl-horizontal">
-          <dt>Hobbies:</dt><dd>{{ person.info.hobbies.join(', ') | dash }}</dd>
-          <dt>Lieblingsfarbe:</dt><dd>{{ person.info.favouriteColor | dash }}</dd>
-          <dt>Kindheitstraum:</dt><dd>{{ person.info.childhoodDream | dash }}</dd>
+          <dt>{{ 'PERSON.HOBBIES' | translate }}:</dt><dd>{{ person.info.hobbies.join(', ') | dash }}</dd>
+          <dt>{{ 'PERSON.FAVOURITE_COLOR' | translate }}:</dt><dd>{{ person.info.favouriteColor | dash }}</dd>
+          <dt>{{ 'PERSON.CHILDHOOD_DREAM' | translate }}:</dt><dd>{{ person.info.childhoodDream | dash }}</dd>
         </dl>
         <hr>
       </div>

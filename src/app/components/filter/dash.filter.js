@@ -6,17 +6,16 @@
     .filter('dash', dashFilter);
 
   /** @ngInject */
-  function dashFilter() {
-    return function(input, unit) {
-      if(!unit) {
-        unit = '';
-      }
+  function dashFilter($translate) {
+    return function(input, unit, space) {
+      unit = unit || '';
+      const inside = space ? ' ': '';
 
       if(!input) {
         return '-';
       }
 
-      return input + unit;
+      return input + inside + $translate.instant(unit);
     };
   }
 })();

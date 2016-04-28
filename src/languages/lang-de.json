@@ -1,0 +1,35 @@
+{
+  "NAVBAR": {
+    "FAMILY_TREE": "Stammbaum",
+    "CREST": "Wappen"
+  },
+  "EMBLEM": {
+    "FAMILY_CREST": "Familienwappen",
+    "BERN": "Bern"
+  },
+  "PERSON": {
+    "BIRTHDAY": "Geburtsdatum",
+    "AGE": "Alter",
+    "SIZE": "Grösse",
+    "APPRENTICESHIPS": "Lehre",
+    "STUDIES": "Studium",
+    "PROFESSIONS": "Beruf",
+    "HOBBIES": "Hobbys",
+    "FAVOURITE_COLOR": "Lieblingsfarbe",
+    "CHILDHOOD_DREAM": "Kindheitstraum",
+    "YEARS": "Jahre"
+  },
+  "MARRIED": {
+    "WHICH_PERSON": "Welche Person willst du öffnen?"
+  },
+  "TREE": {
+    "SEARCH": "Suche"
+  },
+  "LOGIN": {
+    "EMAIL_ADDRESS": "E-Mail Adresse",
+    "PASSWORD": "Passwort"
+  },
+  "EMBLEM_GENERATOR": {
+    "EMBLEM_DESC": "Achtzackiger goldener Stern in schwarzem Wappen."
+  }
+}

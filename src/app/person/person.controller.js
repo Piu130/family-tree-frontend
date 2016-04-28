@@ -22,7 +22,6 @@
         setInfo(response.id);
         setTitle(response);
         setImage(response);
-        setAge(response);
       });
 
     function setTitle(person) {
@@ -31,10 +30,7 @@
 
     function setImage(person) {
       vm.imgSrc = imageRepository.getImageName(person);
-    }
-
-    function setAge(person) {
-      vm.info.age = familyMemberRepository.getAge(person);
+      vm.imgSrc = getImageUrl();
     }
 
     function setInfo(id) {
@@ -42,6 +38,7 @@
         .getInfo(id)
         .then(function (response) {
           vm.info = angular.extend(vm.info, response);
+          vm.info.age = familyMemberRepository.getAge(response.birthday);
         })
         .catch(function () {
           growl.error('Keine Daten zu dieser Person gefunden!', {
@@ -50,6 +47,19 @@
             disableIcons: true
           });
         });
+    }
+
+    // Test several image formats
+    const images = [
+      'https://pixabay.com/static/uploads/photo/2016/01/09/16/58/body-1130559_960_720.jpg',
+      'https://pixabay.com/static/uploads/photo/2016/04/04/21/49/girl-1308309_960_720.jpg',
+      'https://pixabay.com/static/uploads/photo/2016/03/31/17/53/girl-1293985_960_720.jpg',
+      'https://pixabay.com/static/uploads/photo/2014/11/15/14/45/girl-532051_960_720.jpg'
+    ];
+
+    var imgNumber = Math.floor(Math.random() * images.length);
+    function getImageUrl() {
+      return images[imgNumber];
     }
 
   }

@@ -1,0 +1,36 @@
+{
+  "NAVBAR": {
+    "FAMILY_TREE": "Family tree",
+    "CREST": "crest"
+  },
+  "EMBLEM": {
+    "FAMILY_CREST": "Family Crest",
+    "BERN": "Bern"
+  },
+  "PERSON": {
+    "BIRTHDAY": "Birthday",
+    "AGE": "Age",
+    "SIZE": "Size",
+    "APPRENTICESHIPS": "Apprenticeships",
+    "STUDIES": "Studies",
+    "PROFESSIONS": "Professions",
+    "HOBBIES": "Hobbies",
+    "FAVOURITE_COLOR": "Favourite color",
+    "CHILDHOOD_DREAM": "Childhood dream",
+    "YEARS": "years"
+  },
+  "MARRIED": {
+    "WHICH_PERSON": "Which person you want to open?"
+  },
+  "TREE": {
+    "SEARCH": "Search"
+  },
+  "LOGIN": {
+    "EMAIL_ADDRESS": "Email address",
+    "PASSWORD": "Password"
+  },
+  "EMBLEM_GENERATOR": {
+    "EMBLEM_DESC": "Eight-pointed golden star in a black crest."
+  }
+}
+
