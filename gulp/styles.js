@@ -45,7 +45,7 @@ var buildStyles = function() {
     path.join(conf.paths.src, '/app/index.scss')
   ])
     .pipe($.inject(injectFiles, injectOptions))
-    .pipe(wiredep(_.extend({}, conf.wiredep)))
+    .pipe(wiredep(_.assignIn({}, conf.wiredep)))
     .pipe($.sourcemaps.init())
     .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
     .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
-    "start": "./node_modules/gulp/bin/gulp.js serve:dist",
+    "start": "./node_modules/gulp/bin/gulp.js serve",
     "prestart": "npm install --no-bin-link; ./node_modules/bower/bin/bower install --allow-root",
     "test": "./node_modules/gulp/bin/gulp.js test",
     "checkNpmUpdates": "./node_modules/npm-check-updates/bin/ncu",
@@ -46,7 +46,7 @@
     "karma-jasmine": "~0.3.6",
     "karma-ng-html2js-preprocessor": "~0.2.2",
     "karma-phantomjs-launcher": "~0.2.1",
-    "lodash": "~3.10.1",
+    "lodash": "~4.11.1",
     "main-bower-files": "~2.13.0",
     "npm-check-updates": "~2.6.3",
     "phantomjs": "~1.9.20",
