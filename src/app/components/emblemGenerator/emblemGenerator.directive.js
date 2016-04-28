@@ -23,20 +23,21 @@
       vm.center = vm.width / 2;
 
       // Stars outter radius
-      let r1 = vm.width / 2.5;
+      const r1 = vm.width / 2.5;
       // Stars inner radius
-      let r2 = vm.width / 7.5;
+      const r2 = vm.width / 7.5;
 
       // Emblems x padding
       vm.xPadding = vm.width / 30;
 
       // Some star distances
-      let x1 = Math.cos(45*(Math.PI / 180)) * r1;
-      let y1 = Math.sin(45*(Math.PI / 180)) * r1;
-      let x2 = Math.cos(67.5*(Math.PI / 180)) * r2;
-      let y2 = Math.sin(67.5*(Math.PI / 180)) * r2;
+      const x1 = Math.cos(45*(Math.PI / 180)) * r1;
+      const y1 = Math.sin(45*(Math.PI / 180)) * r1;
+      const x2 = Math.cos(67.5*(Math.PI / 180)) * r2;
+      const y2 = Math.sin(67.5*(Math.PI / 180)) * r2;
 
-      vm.starCoords = [
+      const coords = {};
+      coords.starCoords = [
         { x: vm.center, y: vm.center - r1 },
         { x: vm.center + x2, y: vm.center - y2 },
         { x: vm.center + x1, y: vm.center - y1 },
@@ -55,15 +56,15 @@
         { x: vm.center - x2, y: vm.center - y2 }
       ];
 
-      vm.emblemRectCoords = [
+      coords.emblemRectCoords = [
         { x: vm.xPadding, y: 0 },
         { x: vm.width - vm.xPadding, y: 0 },
         { x: vm.width - vm.xPadding, y: vm.center },
         { x: vm.xPadding, y: vm.center }
       ];
 
-      vm.coordsToString = function (coords) {
-        return vm[coords].map(function(obj) {
+      vm.coordsToString = function (coordString) {
+        return coords[coordString].map(function(obj) {
           return obj.x + ',' + obj.y;
         }).join(' ')
       };
