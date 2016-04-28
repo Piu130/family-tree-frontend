@@ -16,7 +16,7 @@
     };
 
     /** @ngInject */
-    function NavbarController(loginService, $state, growl) {
+    function NavbarController($translate, $state, growl, loginService) {
       const vm = this;
 
       vm.logout = function () {
@@ -26,13 +26,17 @@
             $state.go('login');
           })
           .catch(function () {
-            growl.error('Etwas ist schief gegangen. Versuchen Sie es noch einmal.', {
+            growl.error($translate.instant('NAVBAR.SOMETHING_WENT_WRONG'), {
               ttl: 3000,
               disableCountDown: true,
               disableIcons: true
             });
           });
-      }
+      };
+
+      vm.changeLanguage = function(event) {
+        $translate.use(event.currentTarget.innerText);
+      };
     }
   }
 

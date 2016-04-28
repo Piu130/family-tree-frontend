@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController(loginService, $state, growl) {
+  function LoginController($translate, $state, growl, loginService) {
     const vm = this;
 
     vm.user = {
@@ -22,7 +22,7 @@
           $state.go('tree');
         })
         .catch(function () {
-          growl.error('Loginfehler. Email oder Passwort falsch.', {
+          growl.error($translate.instant('LOGIN.WRONG_LOGIN_DATA'), {
             ttl: 3000,
             disableCountDown: true,
             disableIcons: true

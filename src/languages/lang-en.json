@@ -1,13 +1,15 @@
 {
   "NAVBAR": {
     "FAMILY_TREE": "Family tree",
-    "CREST": "crest"
+    "CREST": "crest",
+    "SOMETHING_WENT_WRONG": "Something went wrong. Please try it later again."
   },
   "EMBLEM": {
     "FAMILY_CREST": "Family Crest",
     "BERN": "Bern"
   },
   "PERSON": {
+    "NO_DATA_FOUND": "No data found for this person!",
     "BIRTHDAY": "Birthday",
     "AGE": "Age",
     "SIZE": "Size",
@@ -26,6 +28,7 @@
     "SEARCH": "Search"
   },
   "LOGIN": {
+    "WRONG_LOGIN_DATA": "Loginfault. Email or password wrong.",
     "EMAIL_ADDRESS": "Email address",
     "PASSWORD": "Password"
   },

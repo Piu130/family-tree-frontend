@@ -8,7 +8,7 @@
     .controller('PersonController', PersonController);
 
   /** @ngInject */
-  function PersonController($stateParams, growl, familyMemberRepository, imageRepository) {
+  function PersonController($translate, $stateParams, growl, familyMemberRepository, imageRepository) {
     const vm = this;
     vm.title = '';
     vm.imgSrc = '';
@@ -41,7 +41,7 @@
           vm.info.age = familyMemberRepository.getAge(response.birthday);
         })
         .catch(function () {
-          growl.error('Keine Daten zu dieser Person gefunden!', {
+          growl.error($translate.instant('PERSON.NO_DATA_FOUND'), {
             ttl: 3000,
             disableCountDown: true,
             disableIcons: true
