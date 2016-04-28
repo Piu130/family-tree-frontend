@@ -34,8 +34,16 @@
           });
       };
 
-      vm.changeLanguage = function(event) {
-        $translate.use(event.currentTarget.innerText);
+      vm.changeLanguage = function(languageCode) {
+        $translate
+          .use(languageCode)
+          .catch(function() {
+            growl.error($translate.instant('NAVBAR.COULD_NOT_LOAD_LANG'), {
+              ttl: 3000,
+              disableCountDown: true,
+              disableIcons: true
+            });
+          });
       };
     }
   }

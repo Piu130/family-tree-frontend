@@ -21,11 +21,11 @@
         <li uib-dropdown>
           <a href="" uib-dropdown-toggle>Sprachen <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="" ng-click="navbar.changeLanguage($event)">en</a></li>
-            <li><a href="" ng-click="navbar.changeLanguage($event)">de</a></li>
+            <li><a href="" ng-click="navbar.changeLanguage('de')">Deutsch</a></li>
+            <li><a href="" ng-click="navbar.changeLanguage('en')">English</a></li>
+            <li><a href="" ng-click="navbar.changeLanguage('fr')">Français</a></li>
           </ul>
         </li>
-        <li role="separator" class="divider"></li>
         <li ui-sref-active="active"><a href="" ng-click="navbar.logout()">logout</a></li>
       </ul>
     </div>
