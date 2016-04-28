@@ -1,6 +1,7 @@
 {
   "name": "family-tree-frontend",
   "version": "0.0.0",
+  "private": true,
   "dependencies": {},
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js serve",
