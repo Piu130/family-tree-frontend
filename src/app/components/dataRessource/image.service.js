@@ -6,7 +6,7 @@
     .factory('imageRepository', imageRepository);
 
   /** @ngInject */
-  function imageRepository($log, $http, apiHost, familyMemberRepository) {
+  function imageRepository($http, apiHost, familyMemberRepository) {
 
     const service = {
       query: query,
