@@ -29,7 +29,8 @@
             data: function () {
               return data;
             }
-          }
+          },
+          windowClass: 'center-modal'
         });
 
         modalInstance.result
