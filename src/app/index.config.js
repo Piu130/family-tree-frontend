@@ -10,8 +10,6 @@
     // Enable log
     $logProvider.debugEnabled(true);
 
-    cfpLoadingBarProvider.includeSpinner = false;
-
     $httpProvider.interceptors.push('authTokenInterceptor');
 
     $translateProvider.useStaticFilesLoader({
@@ -19,7 +17,11 @@
       suffix: '.json'
     });
 
+    $translateProvider.useSanitizeValueStrategy('escape');
+    $translateProvider.useCookieStorage();
     $translateProvider.preferredLanguage('en');
+
+    cfpLoadingBarProvider.includeSpinner = false;
   }
 
 })();
