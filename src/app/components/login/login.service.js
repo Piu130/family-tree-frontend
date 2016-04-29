@@ -8,12 +8,10 @@
   /** @ngInject */
   function loginService($http, $cookies, apiHost) {
 
-    const service = {
+    return service = {
       login: login,
       logout: logout
     };
-
-    return service;
 
     function login(user) {
       // 3h in seconds

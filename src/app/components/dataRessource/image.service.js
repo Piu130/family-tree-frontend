@@ -8,12 +8,10 @@
   /** @ngInject */
   function imageRepository($http, apiHost, familyMemberRepository) {
 
-    const service = {
+    return service = {
       query: query,
       getImageName: getImageName
     };
-
-    return service;
 
     function query(person) {
       const imageName = getImageName(person);
