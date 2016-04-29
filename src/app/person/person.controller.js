@@ -40,12 +40,20 @@
           vm.info = angular.extend(vm.info, response);
           vm.info.age = familyMemberRepository.getAge(response.birthday);
         })
-        .catch(function () {
-          growl.error($translate.instant('PERSON.NO_DATA_FOUND'), {
-            ttl: 3000,
-            disableCountDown: true,
-            disableIcons: true
-          });
+        .catch(function (error) {
+          if (error.status === 401) {
+            growl.error($translate.instant('PERSON.NO_DATA_ACCESS'), {
+              ttl: 3000,
+              disableCountDown: true,
+              disableIcons: true
+            });
+          } else if (error.status === 404) {
+            growl.error($translate.instant('PERSON.NO_DATA_FOUND'), {
+              ttl: 3000,
+              disableCountDown: true,
+              disableIcons: true
+            });
+          }
         });
     }
 
