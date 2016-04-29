@@ -37,5 +37,6 @@
   "EMBLEM_GENERATOR": {
     "EMBLEM_DESC": "Achtzackiger goldener Stern in schwarzem Wappen."
   },
-  "SERVER_ERROR": "Etwas ist schief gegangen. Versuchen Sie es noch einmal."
+  "SERVER_ERROR": "Etwas ist schief gegangen. Versuchen Sie es noch einmal.",
+  "NOT_AUTHENTICATED": "Sie sind für die Resource nicht berechtigt. Bitte erst einloggen."
 }

@@ -37,6 +37,7 @@
   "EMBLEM_GENERATOR": {
     "EMBLEM_DESC": "Eight-pointed golden star in a black crest."
   },
-  "SERVER_ERROR": "Something went wrong. Please try it later again."
+  "SERVER_ERROR": "Something went wrong. Please try it later again.",
+  "NOT_AUTHENTICATED": "Sie sind für die Resource nicht berechtigt. Bitte erst einloggen."
 }
 
