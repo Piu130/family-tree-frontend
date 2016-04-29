@@ -24,13 +24,6 @@
           .logout()
           .then(function () {
             $state.go('login');
-          })
-          .catch(function () {
-            growl.error($translate.instant('NAVBAR.SOMETHING_WENT_WRONG'), {
-              ttl: 3000,
-              disableCountDown: true,
-              disableIcons: true
-            });
           });
       };
 

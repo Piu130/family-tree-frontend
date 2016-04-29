@@ -3,7 +3,6 @@
     "FAMILY_TREE": "Family tree",
     "CREST": "crest",
     "LANGUAGES": "languages",
-    "SOMETHING_WENT_WRONG": "Something went wrong. Please try it later again.",
     "COULD_NOT_LOAD_LANG": "Could not load language."
   },
   "EMBLEM": {
@@ -38,6 +37,6 @@
   "EMBLEM_GENERATOR": {
     "EMBLEM_DESC": "Eight-pointed golden star in a black crest."
   },
-  "SERVER_ERROR": "Something went wrong."
+  "SERVER_ERROR": "Something went wrong. Please try it later again."
 }
 
