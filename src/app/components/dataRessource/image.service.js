@@ -8,7 +8,7 @@
   /** @ngInject */
   function imageRepository($http, apiHost, familyMemberRepository) {
 
-    return service = {
+    return {
       query: query,
       getImageName: getImageName
     };

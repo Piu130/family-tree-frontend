@@ -8,7 +8,7 @@
   /** @ngInject */
   function loginService($http, $cookies, apiHost) {
 
-    return service = {
+    return {
       login: login,
       logout: logout
     };
