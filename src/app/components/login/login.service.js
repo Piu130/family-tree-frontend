@@ -10,7 +10,8 @@
 
     return {
       login: login,
-      logout: logout
+      logout: logout,
+      isAuthenticated: isAuthenticated
     };
 
     function login(user) {
@@ -41,6 +42,10 @@
           $cookies.remove('family_tree_access_token');
           return response;
         });
+    }
+
+    function isAuthenticated() {
+      return $cookies.get('family_tree_access_token')? true : false;
     }
   }
 })();
