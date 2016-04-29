@@ -15,7 +15,7 @@
       rememberMe: false
     };
 
-    vm.do = function () {
+    vm.execute = function () {
       loginService
         .login(vm.user)
         .then(function () {
