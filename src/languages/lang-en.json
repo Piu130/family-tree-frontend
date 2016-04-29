@@ -11,7 +11,8 @@
     "BERN": "Bern"
   },
   "PERSON": {
-    "NO_DATA_FOUND": "No data found for this person!",
+    "NO_DATA_FOUND": "No data found for this person.",
+    "NO_DATA_ACCESS": "No data access. Please login.",
     "BIRTHDAY": "Birthday",
     "AGE": "Age",
     "SIZE": "Size",
@@ -36,6 +37,7 @@
   },
   "EMBLEM_GENERATOR": {
     "EMBLEM_DESC": "Eight-pointed golden star in a black crest."
-  }
+  },
+  "SERVER_ERROR": "Something went wrong."
 }
 

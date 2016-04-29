@@ -10,7 +10,7 @@
     // Enable log
     $logProvider.debugEnabled(true);
 
-    $httpProvider.interceptors.push('authTokenInterceptor');
+    $httpProvider.interceptors.push('authTokenInterceptor', 'serverErrorInterceptor');
 
     $translateProvider.useStaticFilesLoader({
       prefix: 'languages/lang-',
