@@ -25,7 +25,7 @@
       });
 
     function setTitle(person) {
-      vm.title = familyMemberRepository.getNamesAsString(person);
+      vm.title = familyMemberRepository.getNamesAsString(person, true);
     }
 
     function setImage(person) {
