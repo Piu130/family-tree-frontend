@@ -11,6 +11,7 @@
     const service = {
       get: getAll,
       query: query,
+      post: post,
       getInfo: getInfo,
       getSpouse: getSpouse,
       getChildren: getChildren,
@@ -39,6 +40,12 @@
         .then(_getComplete);
     }
 
+    function post(data) {
+      console.log(data);
+      return $http
+        .post(apiHost + '/familyMembers', data);
+    }
+
     function getRoot(familyMembers) {
       return familyMembers.find(function (familyMember) {
         return (familyMember.firstNames[0] === rootMember.firstName && familyMember.lastNames[0] === rootMember.lastName);
@@ -59,7 +66,7 @@
 
     function getChildren(id) {
       const children = familyMembers.filter(function (element) {
-        return element.childrenId === id;
+        return element.parentId === id;
       });
 
       if (children.length > 0) {
