@@ -60,7 +60,7 @@
 
     function getSpouse(id) {
       return familyMembers.find(function (element) {
-        return element.familyMemberId === id;
+        return element.spouseId === id;
       });
     }
 
