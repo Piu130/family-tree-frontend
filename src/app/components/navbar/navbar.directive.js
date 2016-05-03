@@ -16,10 +16,15 @@
     };
 
     /** @ngInject */
-    function NavbarController($translate, $state, growl, loginService) {
+    function NavbarController($rootScope, $translate, $state, growl, loginService) {
       const vm = this;
 
       vm.loggedIn = loginService.isAuthenticated();
+      vm.currentLanguage = $translate.use();
+
+      $rootScope.$on('$translateChangeEnd', function() {
+        vm.currentLanguage = $translate.use();
+      });
 
       vm.logout = function () {
         loginService
