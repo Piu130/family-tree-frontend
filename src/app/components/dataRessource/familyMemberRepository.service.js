@@ -41,7 +41,6 @@
     }
 
     function post(data) {
-      console.log(data);
       return $http
         .post(apiHost + '/familyMembers', data);
     }
