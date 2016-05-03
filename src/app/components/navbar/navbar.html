@@ -26,7 +26,8 @@
             <li><a href="" ng-click="navbar.changeLanguage('fr')">Français</a></li>
           </ul>
         </li>
-        <li ui-sref-active="active"><a href="" ng-click="navbar.logout()">logout</a></li>
+        <li ng-show="navbar.loggedIn"><a href="" ng-click="navbar.logout()">logout</a></li>
+        <li ng-show="!navbar.loggedIn" ui-sref-active="active"><a ui-sref="login">login</a></li>
       </ul>
     </div>
   </div>

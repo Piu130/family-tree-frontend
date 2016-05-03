@@ -19,6 +19,8 @@
     function NavbarController($translate, $state, growl, loginService) {
       const vm = this;
 
+      vm.loggedIn = loginService.isAuthenticated();
+
       vm.logout = function () {
         loginService
           .logout()
