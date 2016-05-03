@@ -11,6 +11,7 @@
     const service = {
       get: getAll,
       query: query,
+      post: post,
       getInfo: getInfo,
       getSpouse: getSpouse,
       getChildren: getChildren,
@@ -37,6 +38,11 @@
       return $http
         .get(apiHost + '/familyMembers/' + id)
         .then(_getComplete);
+    }
+
+    function post(data) {
+      return $http
+        .post(apiHost + '/familyMembers', data);
     }
 
     function getRoot(familyMembers) {
