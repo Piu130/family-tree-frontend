@@ -59,7 +59,7 @@
 
     function getChildren(id) {
       const children = familyMembers.filter(function (element) {
-        return element.childrenId === id;
+        return element.parentId === id;
       });
 
       if (children.length > 0) {
