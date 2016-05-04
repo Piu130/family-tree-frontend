@@ -10,6 +10,7 @@
       'pascalprecht.translate',
       'angular-loading-bar',
       'angular-growl',
+      'ngFileUpload',
       'login',
       'tree',
       'person',
