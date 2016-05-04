@@ -6,27 +6,31 @@
     .factory('imageRepository', imageRepository);
 
   /** @ngInject */
-  function imageRepository($http, apiHost, familyMemberRepository) {
+  function imageRepository($http, apiHost, Upload) {
 
     return {
-      query: query,
-      getImageName: getImageName
+      getImgSrc: getImgSrc,
+      download: download,
+      upload: upload
     };
 
-    function query(person) {
-      const imageName = getImageName(person);
-      return $http
-        .get(apiHost + '/containers/familyMemberImages/download/' + imageName)
-        .then(queryComplete);
-
-      function queryComplete(response) {
-        return response.data;
-      }
+    function getImgSrc(person) {
+      return apiHost + '/containers/familyMemberImages/download/' + person.id + '_profilepicture.jpg';
     }
 
-    function getImageName(person) {
-      const fileName = (familyMemberRepository.getNamesAsString(person) + ' ' + new Date(person.birthDay).getFullYear()).replace(/ /g, '_');
-      return apiHost + '/containers/familyMemberImages/download/' + fileName + '.jpg';
+    function download(file) {
+      return $http
+        .get(apiHost + '/containers/familyMemberImages/download/' + file);
+    }
+
+    function upload(data, person) {
+
+      return Upload.upload({
+        url: apiHost + '/containers/familyMemberImages/upload',
+        data: { file: Upload.rename(data, person.id + '_profilepicture.jpg') }
+      });
+      //return $http
+      //  .post(apiHost + '/containers/familyMemberImages/upload', data);
     }
   }
 })();
