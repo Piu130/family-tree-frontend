@@ -125,7 +125,7 @@
             .post(info);
 
           imageRepository
-            .uploadProfilePicture(vm.image, response.data);
+            .upload(vm.image, response.data);
         });
     };
 
