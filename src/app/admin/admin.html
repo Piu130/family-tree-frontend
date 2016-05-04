@@ -6,14 +6,14 @@
 
   <div class="form-group" ng-hide="admin.parent">
     <label for="spouse">Ehegatte</label>
-    <select id="spouse" ng-model="admin.spouse" ng-options="option.label for option in admin.options">
+    <select id="spouse" ng-model="admin.spouse" ng-options="option.label for option in admin.dropdownSpouseParent">
       <option></option>
     </select>
   </div>
 
   <div class="form-group" ng-hide="admin.spouse">
     <label for="parent">Elternteil</label>
-    <select id="parent" ng-model="admin.parent" ng-options="option.label for option in admin.options">
+    <select id="parent" ng-model="admin.parent" ng-options="option.label for option in admin.dropdownSpouseParent">
       <option></option>
     </select>
   </div>

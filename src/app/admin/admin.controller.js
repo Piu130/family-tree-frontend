@@ -90,12 +90,13 @@
     vm.model = {};
     vm.spouse = "";
     vm.parent = "";
-    vm.options = [];
     vm.image = {};
+
+    vm.dropdownSpouseParent = [];
     familyMemberRepository
       .get()
       .then(function(response) {
-        vm.options = response
+        vm.dropdownSpouseParent = response
           .filter(function(value) {
             return !value.spouseId;
           })
