@@ -29,8 +29,6 @@
         url: apiHost + '/containers/familyMemberImages/upload',
         data: { file: Upload.rename(data, person.id + '_profilepicture.jpg') }
       });
-      //return $http
-      //  .post(apiHost + '/containers/familyMemberImages/upload', data);
     }
   }
 })();
