@@ -9,7 +9,7 @@
     .controller('AdminController', AdminController);
 
   /** @ngInject */
-  function AdminController(familyMemberRepository, familyMemberInfoRepository) {
+  function AdminController(familyMemberRepository, familyMemberInfoRepository, imageRepository) {
     const vm = this;
 
     vm.schema = {
@@ -91,6 +91,7 @@
     vm.spouse = "";
     vm.parent = "";
     vm.options = [];
+    vm.image = {};
     familyMemberRepository
       .get()
       .then(function(response) {
@@ -122,6 +123,9 @@
 
           familyMemberInfoRepository
             .post(info);
+
+          imageRepository
+            .uploadProfilePicture(vm.image, response.data);
         });
     };
 
