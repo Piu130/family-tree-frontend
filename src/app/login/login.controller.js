@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($translate, $state, growl, loginService) {
+  function LoginController($translate, $state, $stateParams, growl, loginService) {
     const vm = this;
 
     vm.user = {
@@ -19,7 +19,9 @@
       loginService
         .login(vm.user)
         .then(function () {
-          $state.go('tree');
+          const nextState = $stateParams.toState.name ? $stateParams.toState.name : 'tree';
+
+          $state.go(nextState, $stateParams.toParams);
         })
         .catch(function () {
           growl.error($translate.instant('LOGIN.WRONG_LOGIN_DATA'), {

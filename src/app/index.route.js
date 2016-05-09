@@ -13,7 +13,8 @@
         templateUrl: 'app/login/login.html',
         controller: 'LoginController',
         controllerAs: 'login',
-        authenticate: false
+        authenticate: false,
+        params: {toState:{},toParams:{}}
       })
       .state('tree', {
         url: '/',
