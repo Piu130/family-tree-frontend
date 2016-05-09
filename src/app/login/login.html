@@ -7,11 +7,17 @@
   <form role="form">
     <div class="form-group">
       <label for="email">{{ 'LOGIN.EMAIL_ADDRESS' | translate }}:</label>
-      <input type="email" class="form-control" id="email" ng-model="login.user.email">
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="email" class="form-control" id="email" ng-model="login.user.email">
+      </div>
     </div>
     <div class="form-group">
       <label for="password">{{ 'LOGIN.PASSWORD' | translate }}:</label>
-      <input type="password" class="form-control" id="password" ng-model="login.user.password">
+      <div class="input-group">
+        <span class="input-group-addon"><span class="fa fa-lock"></span></span>
+        <input type="password" class="form-control" id="password" ng-model="login.user.password">
+      </div>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" ng-model="login.user.rememberMe"> Remember me</label>

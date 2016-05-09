@@ -13,21 +13,21 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-sm-pull-6">
         <dl class="dl-horizontal">
-          <dt>{{ 'PERSON.BIRTHDAY' | translate }}:</dt><dd>{{ person.info.birthday | dash | date: 'dd.MM.yyyy' }}</dd>
-          <dt>{{ 'PERSON.AGE' | translate }}:</dt><dd>{{ person.info.age | dash: 'PERSON.YEARS':true }}</dd>
-          <dt>{{ 'PERSON.SIZE' | translate }}:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
+          <dt><span class="fa fa-gift"></span> {{ 'PERSON.BIRTHDAY' | translate }}:</dt><dd>{{ person.info.birthday | dash | date: 'dd.MM.yyyy' }}</dd>
+          <dt><span class="fa fa-heartbeat"></span> {{ 'PERSON.AGE' | translate }}:</dt><dd>{{ person.info.age | dash: 'PERSON.YEARS':true }}</dd>
+          <dt><span class="fa fa-arrows-v"></span> {{ 'PERSON.SIZE' | translate }}:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
         </dl>
         <hr>
         <dl class="dl-horizontal">
-          <dt>{{ 'PERSON.APPRENTICESHIPS' | translate }}:</dt><dd>{{ person.info.apprenticeships.join(', ') | dash }}</dd>
-          <dt>{{ 'PERSON.STUDIES' | translate }}:</dt><dd>{{ person.info.studies.join(', ') | dash }}</dd>
-          <dt>{{ 'PERSON.PROFESSIONS' | translate }}:</dt><dd>{{ person.info.professions.join(', ') | dash }}</dd>
+          <dt><span class="fa fa-paperclip"></span> {{ 'PERSON.APPRENTICESHIPS' | translate }}:</dt><dd>{{ person.info.apprenticeships.join(', ') | dash }}</dd>
+          <dt><span class="fa fa-graduation-cap"></span> {{ 'PERSON.STUDIES' | translate }}:</dt><dd>{{ person.info.studies.join(', ') | dash }}</dd>
+          <dt><span class="fa fa-industry"></span> {{ 'PERSON.PROFESSIONS' | translate }}:</dt><dd>{{ person.info.professions.join(', ') | dash }}</dd>
         </dl>
         <hr>
         <dl class="dl-horizontal">
-          <dt>{{ 'PERSON.HOBBIES' | translate }}:</dt><dd>{{ person.info.hobbies.join(', ') | dash }}</dd>
-          <dt>{{ 'PERSON.FAVOURITE_COLOR' | translate }}:</dt><dd>{{ person.info.favouriteColor | dash }}</dd>
-          <dt>{{ 'PERSON.CHILDHOOD_DREAM' | translate }}:</dt><dd>{{ person.info.childhoodDream | dash }}</dd>
+          <dt><span class="fa fa-picture-o"></span> {{ 'PERSON.HOBBIES' | translate }}:</dt><dd>{{ person.info.hobbies.join(', ') | dash }}</dd>
+          <dt><span class="fa fa-paint-brush"></span> {{ 'PERSON.FAVOURITE_COLOR' | translate }}:</dt><dd>{{ person.info.favouriteColor | dash }}</dd>
+          <dt><span class="fa fa-cubes"></span> {{ 'PERSON.CHILDHOOD_DREAM' | translate }}:</dt><dd>{{ person.info.childhoodDream | dash }}</dd>
         </dl>
         <hr>
       </div>

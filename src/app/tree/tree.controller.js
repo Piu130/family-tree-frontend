@@ -63,8 +63,14 @@
             data: htmlTree,
             enableLinks: false,
             levels: 3,
+            collapseIcon: 'fa fa-minus',
+            expandIcon: 'fa fa-plus',
+            highlightSelected: false,
+            searchResultBackColor: 'yellow',
+            searchResultColor: null,
 
-            onNodeSelected: onNodeSelected
+            onNodeSelected: onNodeSelected,
+            onNodeUnselected: onNodeSelected
           }
         );
       });

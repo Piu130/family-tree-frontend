@@ -8,26 +8,26 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" ui-sref="tree">
-        <span class="glyphicon glyphicon-home"></span> {{ 'NAVBAR.FAMILY_TREE' | translate }}
+        <span class="fa fa-home"></span> {{ 'NAVBAR.FAMILY_TREE' | translate }}
       </a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar" uib-collapse="!isCollapsed">
       <ul class="nav navbar-nav">
-        <li ui-sref-active="active"><a ui-sref="emblem">{{ 'NAVBAR.CREST' | translate }}</a></li>
+        <li ui-sref-active="active"><a ui-sref="emblem"><span class="fa fa-bookmark"></span> {{ 'NAVBAR.CREST' | translate }}</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li uib-dropdown>
-          <a href="" uib-dropdown-toggle>{{ 'NAVBAR.LANGUAGES' |translate }} <span class="caret"></span></a>
+          <a href="" uib-dropdown-toggle><span class="fa fa-globe"></span> {{ 'NAVBAR.LANGUAGES' |translate }} <span class="fa fa-caret-down"></span></a>
           <ul class="dropdown-menu">
             <li ng-class="{active: navbar.currentLanguage==='de'}"><a href="" ng-click="navbar.changeLanguage('de')">Deutsch</a></li>
             <li ng-class="{active: navbar.currentLanguage==='en'}"><a href="" ng-click="navbar.changeLanguage('en')">English</a></li>
             <li ng-class="{active: navbar.currentLanguage==='fr'}"><a href="" ng-click="navbar.changeLanguage('fr')">Français</a></li>
           </ul>
         </li>
-        <li ng-show="navbar.loggedIn"><a href="" ng-click="navbar.logout()">logout</a></li>
-        <li ng-show="!navbar.loggedIn" ui-sref-active="active"><a ui-sref="login">login</a></li>
+        <li ng-show="navbar.loggedIn"><a href="" ng-click="navbar.logout()"><span class="fa fa-sign-out"></span> logout</a></li>
+        <li ng-show="!navbar.loggedIn" ui-sref-active="active"><a ui-sref="login"><span class="fa fa-sign-in"></span> login</a></li>
       </ul>
     </div>
   </div>
