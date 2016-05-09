@@ -14,7 +14,7 @@
         controller: 'LoginController',
         controllerAs: 'login',
         authenticate: false,
-        params: {toState:{},toParams:{}}
+        params: {toState: {}, toParams: {}}
       })
       .state('tree', {
         url: '/',
