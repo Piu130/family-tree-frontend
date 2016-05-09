@@ -9,20 +9,20 @@
       <label for="email">{{ 'LOGIN.EMAIL_ADDRESS' | translate }}:</label>
       <div class="input-group">
         <span class="input-group-addon">@</span>
-        <input type="email" class="form-control" id="email" ng-model="login.user.email">
+        <input type="email" class="form-control" id="email" ng-model="login.user.email" placeholder="{{ 'LOGIN.EMAIL_ADDRESS' | translate }}...">
       </div>
     </div>
     <div class="form-group">
       <label for="password">{{ 'LOGIN.PASSWORD' | translate }}:</label>
       <div class="input-group">
         <span class="input-group-addon"><span class="fa fa-lock"></span></span>
-        <input type="password" class="form-control" id="password" ng-model="login.user.password">
+        <input type="password" class="form-control" id="password" ng-model="login.user.password" placeholder="{{ 'LOGIN.PASSWORD' | translate }}...">
       </div>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" ng-model="login.user.rememberMe"> Remember me</label>
     </div>
-    <button type="submit" class="btn btn-default" ng-click="login.execute()">login</button>
+    <button type="submit" class="btn btn-default" ng-click="login.execute()"><span class="fa fa-sign-in"></span> login</button>
   </form>
 
 </div>
