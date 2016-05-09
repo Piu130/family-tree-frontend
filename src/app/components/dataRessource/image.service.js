@@ -11,7 +11,8 @@
     return {
       getImgSrc: getImgSrc,
       download: download,
-      upload: upload
+      upload: upload,
+      uploadProfilePicture: uploadProfilePicture
     };
 
     function getImgSrc(person) {
@@ -23,12 +24,16 @@
         .get(apiHost + '/containers/familyMemberImages/download/' + file);
     }
 
-    function upload(data, person) {
+    function upload(file, fileName) {
 
       return Upload.upload({
         url: apiHost + '/containers/familyMemberImages/upload',
-        data: { file: Upload.rename(data, person.id + '_profilepicture.jpg') }
+        data: { file: Upload.rename(file, fileName) }
       });
+    }
+
+    function uploadProfilePicture(picture, person) {
+      upload(picture, person.id + '_profilepicture.jpg');
     }
   }
 })();
