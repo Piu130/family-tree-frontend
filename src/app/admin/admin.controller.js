@@ -13,66 +13,66 @@
     const vm = this;
 
     vm.schema = {
-      type: "object",
+      type: 'object',
       properties: {
         firstNames: {
-          type: "array",
+          type: 'array',
           items: {
-            type: "string"
+            type: 'string'
           }
         },
         lastNames: {
-          type: "array",
+          type: 'array',
           items: {
-            type: "string"
+            type: 'string'
           }
         },
         dayOfDeath: {
-          type: "string",
-          format: "date"
+          type: 'string',
+          format: 'date'
         },
         order: {
-          type: "number"
+          type: 'number'
         },
         info: {
-          type: "object",
+          type: 'object',
           properties: {
             birthday: {
-              type: "string",
-              format: "date"
+              type: 'string',
+              format: 'date'
             },
             size: {
-              type: "number"
+              type: 'number'
             },
             apprenticeships: {
-              type: "array",
+              type: 'array',
               items: {
-                type: "string"
+                type: 'string'
               }
             },
             studies: {
-              type: "array",
+              type: 'array',
               items: {
-                type: "string"
+                type: 'string'
               }
             },
             professions: {
-              type: "array",
+              type: 'array',
               items: {
-                type: "string"
+                type: 'string'
               }
             },
             hobbies: {
-              type: "array",
+              type: 'array',
               items: {
-                type: "string"
+                type: 'string'
               }
             },
             favouriteColor: {
-              type: "string"
+              type: 'string'
             },
             childhoodDream: {
-              type: "string"
+              type: 'string'
             }
           }
         }
@@ -80,16 +80,16 @@
     };
 
     vm.form = [
-      "*",
+      '*',
       {
-        type: "submit",
-        title: "Save"
+        type: 'submit',
+        title: 'Save'
       }
     ];
 
     vm.model = {};
-    vm.spouse = "";
-    vm.parent = "";
+    vm.spouse = '';
+    vm.parent = '';
     vm.image = {};
 
     vm.dropdownSpouseParent = [];
@@ -126,7 +126,7 @@
             .post(info);
 
           imageRepository
-            .upload(vm.image, response.data);
+            .uploadProfilePicture(vm.image, response.data);
         });
     };
 
