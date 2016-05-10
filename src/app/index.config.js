@@ -6,9 +6,11 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $httpProvider, $translateProvider, cfpLoadingBarProvider) {
+  function config($logProvider, $httpProvider, $translateProvider, $locationProvider, cfpLoadingBarProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    $locationProvider.html5Mode(true);
 
     $httpProvider.interceptors.push('authTokenInterceptor', 'serverErrorInterceptor');
 
