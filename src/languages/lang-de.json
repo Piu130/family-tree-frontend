@@ -12,6 +12,7 @@
   "PERSON": {
     "NO_DATA_FOUND": "Keine Daten zu dieser Person gefunden.",
     "NO_DATA_ACCESS": "Kein Zugriff auf die Daten. Bitte zuerst einloggen.",
+    "GENDER": "Geschlecht",
     "BIRTHDAY": "Geburtsdatum",
     "AGE": "Alter",
     "SIZE": "Grösse",
