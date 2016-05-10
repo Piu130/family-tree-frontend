@@ -19,7 +19,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li uib-dropdown>
-          <a href="" uib-dropdown-toggle><span class="fa fa-globe"></span> {{ 'NAVBAR.LANGUAGES' |translate }} <span class="fa fa-caret-down"></span></a>
+          <a href="" uib-dropdown-toggle><span class="fa fa-globe"></span> {{ 'NAVBAR.LANGUAGES' | translate }} <span class="fa fa-caret-down"></span></a>
           <ul class="dropdown-menu">
             <li ng-class="{active: navbar.currentLanguage==='de'}"><a href="" ng-click="navbar.changeLanguage('de')">Deutsch</a></li>
             <li ng-class="{active: navbar.currentLanguage==='en'}"><a href="" ng-click="navbar.changeLanguage('en')">English</a></li>
