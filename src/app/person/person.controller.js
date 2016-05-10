@@ -14,7 +14,6 @@
     vm.imgSrc = '';
     vm.info = {};
 
-
     familyMemberRepository
       .query($stateParams.id)
       .then(function (response) {
