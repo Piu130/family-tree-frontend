@@ -20,6 +20,7 @@
     };
 
     function onNodeSelected(event, data) {
+      angular.element('#tree').treeview('unselectNode', [data.nodeId]);
 
       if (angular.isArray(data.id)) {
         const modalInstance = $uibModal.open({
@@ -69,8 +70,7 @@
             searchResultBackColor: 'yellow',
             searchResultColor: null,
 
-            onNodeSelected: onNodeSelected,
-            onNodeUnselected: onNodeSelected
+            onNodeSelected: onNodeSelected
           }
         );
       });
