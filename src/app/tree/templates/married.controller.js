@@ -9,14 +9,15 @@
   function MarriedController($uibModalInstance, data, familyMemberRepository) {
     const vm = this;
 
+    vm.closeModal = closeModal;
     vm.data = data;
 
     vm.familyMemberName = familyMemberRepository.getNamesAsString(data.familyMember);
     vm.spouseName = familyMemberRepository.getNamesAsString(data.spouse);
 
-    vm.closeModal = function () {
+    function closeModal() {
       $uibModalInstance.close();
-    };
+    }
   }
 
 })();

@@ -9,13 +9,14 @@
   function LoginController($translate, $state, $stateParams, growl, loginService) {
     const vm = this;
 
+    vm.execute = execute;
     vm.user = {
       email: '',
       password: '',
       rememberMe: false
     };
 
-    vm.execute = function () {
+    function execute () {
       loginService
         .login(vm.user)
         .then(function () {
@@ -30,7 +31,7 @@
             disableIcons: true
           });
         });
-    };
+    }
 
   }
 

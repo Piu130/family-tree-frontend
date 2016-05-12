@@ -10,9 +10,10 @@
   /** @ngInject */
   function PersonController($translate, $stateParams, growl, familyMemberRepository, imageRepository) {
     const vm = this;
-    vm.title = '';
+
     vm.imgSrc = '';
     vm.info = {};
+    vm.title = '';
 
     familyMemberRepository
       .query($stateParams.id)

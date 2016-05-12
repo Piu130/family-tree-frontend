@@ -12,6 +12,17 @@
   function AdminController(familyMemberRepository, familyMemberInfoRepository, imageRepository) {
     const vm = this;
 
+    vm.dropdownSpouseParent = [];
+    vm.form = [
+      '*',
+      {
+        type: 'submit',
+        title: 'Save'
+      }
+    ];
+    vm.image = {};
+    vm.model = {};
+    vm.parent = '';
     vm.schema = {
       type: 'object',
       properties: {
@@ -78,38 +89,26 @@
         }
       }
     };
-
-    vm.form = [
-      '*',
-      {
-        type: 'submit',
-        title: 'Save'
-      }
-    ];
-
-    vm.model = {};
     vm.spouse = '';
-    vm.parent = '';
-    vm.image = {};
+    vm.submit = submit;
 
-    vm.dropdownSpouseParent = [];
     familyMemberRepository
       .get()
-      .then(function(response) {
+      .then(function (response) {
         vm.dropdownSpouseParent = response
-          .filter(function(value) {
+          .filter(function (value) {
             return !value.spouseId;
           })
           .map(function (element) {
-            return { id: element.id, label: familyMemberRepository.getNamesAsString(element) }
+            return {id: element.id, label: familyMemberRepository.getNamesAsString(element)}
           });
       });
 
-    vm.submit = function() {
-      if(vm.spouse.id) {
+    function submit() {
+      if (vm.spouse.id) {
         vm.model.spouseId = vm.spouse.id
       }
-      if(vm.parent.id) {
+      if (vm.parent.id) {
         vm.model.parentId = vm.parent.id
       }
 
@@ -118,7 +117,7 @@
 
       familyMemberRepository
         .post(vm.model)
-        .then(function(response) {
+        .then(function (response) {
           const id = response.data.id;
           info.familyMemberId = id;
 
@@ -128,7 +127,7 @@
           imageRepository
             .uploadProfilePicture(vm.image, response.data);
         });
-    };
+    }
 
   }
 

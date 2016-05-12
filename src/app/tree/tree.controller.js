@@ -12,12 +12,14 @@
   function TreeController($state, $uibModal, familyMemberRepository) {
     const vm = this;
 
+    vm.search = search;
     vm.searchText = '';
-    let htmlTree = '';
 
-    vm.search = function () {
+    function search () {
       angular.element('#tree').treeview('search', [vm.searchText]);
-    };
+    }
+
+    let htmlTree = '';
 
     function onNodeSelected(event, data) {
       angular.element('#tree').treeview('unselectNode', [data.nodeId]);

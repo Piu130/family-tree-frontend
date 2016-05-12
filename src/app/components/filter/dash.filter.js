@@ -7,11 +7,11 @@
 
   /** @ngInject */
   function dashFilter($translate) {
-    return function(input, unit, space) {
+    return function (input, unit, space) {
       unit = unit || '';
-      const inside = space ? ' ': '';
+      const inside = space ? ' ' : '';
 
-      if(angular.isUndefined(input) || input === null) {
+      if (angular.isUndefined(input) || input === null) {
         return '-';
       }
 
