@@ -15,14 +15,20 @@
     vm.info = {};
     vm.title = '';
 
-    familyMemberRepository
-      .query($stateParams.id)
-      .then(function (response) {
-        vm.info = response;
-        setInfo(response.id);
-        setTitle(response);
-        setImage(response);
-      });
+    activate();
+
+    function activate() {
+      return familyMemberRepository
+        .query($stateParams.id)
+        .then(function (response) {
+          vm.info = response;
+          setInfo(response.id);
+          setTitle(response);
+          setImage(response);
+
+          return response;
+        });
+    }
 
     function setTitle(person) {
       vm.title = familyMemberRepository.getNamesAsString(person, true);

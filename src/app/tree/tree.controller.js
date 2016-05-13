@@ -15,7 +15,9 @@
     vm.search = search;
     vm.searchText = '';
 
-    function search () {
+    activate();
+
+    function search() {
       angular.element('#tree').treeview('search', [vm.searchText]);
     }
 
@@ -47,35 +49,39 @@
       }
     }
 
-    familyMemberRepository
-      .get()
-      .then(function (response) {
-        const rootMemberObject = familyMemberRepository.getRoot(response);
+    function activate() {
+      return familyMemberRepository
+        .get()
+        .then(function (response) {
+          const rootMemberObject = familyMemberRepository.getRoot(response);
 
-        htmlTree += '[';
-        htmlTree += getOpenFamilyMemberString();
-        htmlTree += getFamilyMemberString(rootMemberObject);
+          htmlTree += '[';
+          htmlTree += getOpenFamilyMemberString();
+          htmlTree += getFamilyMemberString(rootMemberObject);
 
-        addChildren(rootMemberObject.id);
+          addChildren(rootMemberObject.id);
 
-        htmlTree += '}';
-        htmlTree += getCloseChildrenString();
+          htmlTree += '}';
+          htmlTree += getCloseChildrenString();
 
-        angular.element('#tree').treeview(
-          {
-            data: htmlTree,
-            enableLinks: false,
-            levels: 3,
-            collapseIcon: 'fa fa-minus',
-            expandIcon: 'fa fa-plus',
-            highlightSelected: false,
-            searchResultBackColor: 'yellow',
-            searchResultColor: null,
+          angular.element('#tree').treeview(
+            {
+              data: htmlTree,
+              enableLinks: false,
+              levels: 3,
+              collapseIcon: 'fa fa-minus',
+              expandIcon: 'fa fa-plus',
+              highlightSelected: false,
+              searchResultBackColor: 'yellow',
+              searchResultColor: null,
 
-            onNodeSelected: onNodeSelected
-          }
-        );
-      });
+              onNodeSelected: onNodeSelected
+            }
+          );
+
+          return response;
+        });
+    }
 
     function addChildren(id) {
       const children = familyMemberRepository.getChildren(id);

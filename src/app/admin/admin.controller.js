@@ -92,17 +92,23 @@
     vm.spouse = '';
     vm.submit = submit;
 
-    familyMemberRepository
-      .get()
-      .then(function (response) {
-        vm.dropdownSpouseParent = response
-          .filter(function (value) {
-            return !value.spouseId;
-          })
-          .map(function (element) {
-            return {id: element.id, label: familyMemberRepository.getNamesAsString(element)}
-          });
-      });
+    activate();
+
+    function activate() {
+      familyMemberRepository
+        .get()
+        .then(function (response) {
+          vm.dropdownSpouseParent = response
+            .filter(function (value) {
+              return !value.spouseId;
+            })
+            .map(function (element) {
+              return {id: element.id, label: familyMemberRepository.getNamesAsString(element)}
+            });
+
+          return response;
+        });
+    }
 
     function submit() {
       if (vm.spouse.id) {
