@@ -38,6 +38,10 @@
             type: 'string'
           }
         },
+        gender: {
+          type: 'string',
+          enum: ['male', 'female', 'transgender', 'other']
+        },
         dayOfDeath: {
           type: 'string',
           format: 'date'
