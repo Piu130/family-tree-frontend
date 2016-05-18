@@ -13,7 +13,7 @@
     "angular-translate": "~2.11.0",
     "angular-translate-loader-static-files": "~2.11.0",
     "angular-translate-storage-cookie": "~2.11.0",
-    "angular-ui-router": "~0.2.15",
+    "angular-ui-router": "~0.3.0",
     "bootstrap-sass": "~3.3.6",
     "bootstrap-treeview": "~1.2.0",
     "jquery": "~2.2.3",
