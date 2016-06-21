@@ -6,8 +6,14 @@
     .controller('EmblemController', EmblemController);
 
   /** @ngInject */
-  function EmblemController() {
+  function EmblemController($state) {
+    const vm = this;
 
+    vm.fromSlash = $state.params.fromSlash;
+
+    vm.redirect = function() {
+      $state.go('tree')
+    };
   }
 
 })();

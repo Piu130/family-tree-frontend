@@ -4,9 +4,10 @@
     <acme-navbar></acme-navbar>
   </div>
 
-  <div class="row" style="text-align: center">
+  <div class="row" style="text-align: center" ng-click="emblem.redirect()">
     <h1><b>{{ 'EMBLEM.FAMILY_CREST' | translate }} Ramser</b><br><small>({{ 'EMBLEM.BERN' | translate }})</small></h1>
     <emblem width="300"></emblem>
+    <p ng-show="emblem.fromSlash">{{ 'EMBLEM.CLICK_EMBLEM' | translate }}</p>
   </div>
 
 </div>

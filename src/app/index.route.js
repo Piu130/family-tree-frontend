@@ -35,7 +35,8 @@
         templateUrl: 'app/emblem/emblem.html',
         controller: 'EmblemController',
         controllerAs: 'emblem',
-        authenticate: false
+        authenticate: false,
+        params: {fromSlash: false}
       })
       .state('admin', {
         url: '/admin',
@@ -48,7 +49,7 @@
     $urlRouterProvider.otherwise('/login');
 
     $urlRouterProvider.when('/', function ($state) {
-      $state.go('emblem');
+      $state.go('emblem', {fromSlash: true});
     });
   }
 

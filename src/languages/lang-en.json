@@ -7,7 +7,8 @@
   },
   "EMBLEM": {
     "FAMILY_CREST": "Family Crest",
-    "BERN": "Bern"
+    "BERN": "Bern",
+    "CLICK_EMBLEM": "(click the emblem to enter the page)"
   },
   "PERSON": {
     "NO_DATA_FOUND": "No data found for this person.",
