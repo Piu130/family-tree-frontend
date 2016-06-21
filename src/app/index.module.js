@@ -7,6 +7,7 @@
       'ui.bootstrap',
       'ngSanitize',
       'ngCookies',
+      'ngAria',
       'pascalprecht.translate',
       'angular-loading-bar',
       'angular-growl',
