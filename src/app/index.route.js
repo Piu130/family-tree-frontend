@@ -17,7 +17,7 @@
         params: {toState: {}, toParams: {}}
       })
       .state('tree', {
-        url: '/',
+        url: '/tree',
         templateUrl: 'app/tree/tree.html',
         controller: 'TreeController',
         controllerAs: 'tree',
@@ -46,6 +46,10 @@
       });
 
     $urlRouterProvider.otherwise('/login');
+
+    $urlRouterProvider.when('/', function ($state) {
+      $state.go('emblem');
+    });
   }
 
 })();
