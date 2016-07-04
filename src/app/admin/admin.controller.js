@@ -128,11 +128,9 @@
       familyMemberRepository
         .post(vm.model)
         .then(function (response) {
-          const id = response.data.id;
-          info.familyMemberId = id;
 
-          familyMemberInfoRepository
-            .post(info);
+          familyMemberRepository
+            .setInfo(response.data.id, info);
 
           imageRepository
             .uploadProfilePicture(vm.image, response.data);
