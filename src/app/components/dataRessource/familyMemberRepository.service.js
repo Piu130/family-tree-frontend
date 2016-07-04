@@ -13,6 +13,7 @@
       query: query,
       post: post,
       getInfo: getInfo,
+      setInfo: setInfo,
       getSpouse: getSpouse,
       getChildren: getChildren,
       getNamesAsString: getNamesAsString,
@@ -55,6 +56,11 @@
       return $http
         .get(apiHost + '/familyMembers/' + id + '/info')
         .then(_getComplete);
+    }
+
+    function setInfo(id, data) {
+      return $http
+        .post(apiHost + '/familyMembers/' + id + '/info', data);
     }
 
     function getSpouse(id) {
