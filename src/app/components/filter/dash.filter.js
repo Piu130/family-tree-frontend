@@ -11,7 +11,7 @@
       unit = unit || '';
       const inside = space ? ' ' : '';
 
-      if (angular.isUndefined(input) || input === null || input === '') {
+      if (angular.isUndefined(input) || input === null || input === '' || input === 'null') {
         return '-';
       }
 
