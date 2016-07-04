@@ -9,7 +9,7 @@
     .controller('AdminController', AdminController);
 
   /** @ngInject */
-  function AdminController(familyMemberRepository, familyMemberInfoRepository, imageRepository) {
+  function AdminController(familyMemberRepository, imageRepository) {
     const vm = this;
 
     vm.dropdownSpouseParent = [];
