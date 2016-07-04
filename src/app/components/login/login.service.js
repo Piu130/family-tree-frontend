@@ -36,10 +36,11 @@
     }
 
     function logout() {
+      $cookies.remove('family_tree_access_token');
+
       return $http
         .post(apiHost + '/users/logout')
         .then(function (response) {
-          $cookies.remove('family_tree_access_token');
           return response;
         });
     }
