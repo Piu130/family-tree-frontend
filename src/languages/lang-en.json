@@ -23,7 +23,8 @@
     "HOBBIES": "Hobbies",
     "FAVOURITE_COLOR": "Favourite color",
     "CHILDHOOD_DREAM": "Childhood dream",
-    "YEARS": "years"
+    "YEARS": "years",
+    "PROFILE_PICTURE_PLACEHOLDER": "Image of the current selected person. (Could not load image or image not found)"
   },
   "MARRIED": {
     "WHICH_PERSON": "Which person you want to open?"
