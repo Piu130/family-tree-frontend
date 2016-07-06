@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-push-6">
-        <img alt="{{ 'PERSON.PROFILE_PICTURE_PLACEHOLDER' | translate }}" class="img-responsive img-rounded" ng-src="{{ person.imgSrc }}" onerror="this.onerror=null;this.src=''" />
+        <img alt="{{ 'PERSON.PROFILE_PICTURE_PLACEHOLDER' | translate }}" class="img-responsive img-rounded" ng-src="{{ person.imgSrc }}" onerror="this.onerror=null;if(window.matchMedia('(max-width: 767px)').matches){$(this).remove();};" />
       </div>
       <div class="col-xs-12 col-sm-6 col-sm-pull-6">
         <dl class="dl-horizontal">
