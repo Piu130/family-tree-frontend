@@ -4,6 +4,13 @@
     <acme-navbar></acme-navbar>
   </div>
 
+  <div class="form-group">
+    <label for="spouse">Bearbeiten</label>
+    <select id="currentPerson" ng-change="admin.editChange()" ng-model="admin.currentPerson" ng-options="option.label for option in admin.allFamilyMembers">
+      <option></option>
+    </select>
+  </div>
+
   <div class="form-group" ng-hide="admin.parent">
     <label for="spouse">Ehegatte</label>
     <select id="spouse" ng-model="admin.spouse" ng-options="option.label for option in admin.dropdownSpouseParent">
@@ -23,6 +30,8 @@
     <input id="image" ngf-select ng-model="admin.image" ngf-accept="'image/*'" type="file">
   </div>
 
-  <form sf-schema="admin.schema" sf-form="admin.form" sf-model="admin.model" ng-submit="admin.submit()"></form>
+  <form sf-schema="admin.schemaMain" sf-form="admin.formMain" sf-model="admin.modelMain" ng-submit="admin.submitMain()"></form>
+
+  <form sf-schema="admin.schemaInfo" sf-form="admin.formInfo" sf-model="admin.modelInfo" ng-submit="admin.submitInfo()"></form>
 
 </div>
