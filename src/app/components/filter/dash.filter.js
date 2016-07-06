@@ -12,7 +12,7 @@
       const inside = space ? ' ' : '';
 
       if (angular.isUndefined(input) || input === null || input === '' || input === 'null') {
-        return '-';
+        return '- *';
       }
 
       return input + inside + $translate.instant(unit);

@@ -24,7 +24,8 @@
     "FAVOURITE_COLOR": "Lieblingsfarbe",
     "CHILDHOOD_DREAM": "Kindheitstraum",
     "YEARS": "Jahre",
-    "PROFILE_PICTURE_PLACEHOLDER": "Bild der gewählten Person. (Bild konnte nicht geladen werden, oder ist nicht vorhanden)"
+    "PROFILE_PICTURE_PLACEHOLDER": "Bild der gewählten Person. (Bild konnte nicht geladen werden, oder ist nicht vorhanden)",
+    "NO_INFO_FOUND": "keine Angaben gefunden"
   },
   "MARRIED": {
     "WHICH_PERSON": "Welche Person willst du öffnen?"
