@@ -12,6 +12,7 @@
       get: getAll,
       query: query,
       post: post,
+      put: put,
       getInfo: getInfo,
       setInfo: setInfo,
       getSpouse: getSpouse,
@@ -46,6 +47,11 @@
         .post(apiHost + '/familyMembers', data);
     }
 
+    function put(data) {
+      return $http
+        .put(apiHost + '/familyMembers', data);
+    }
+
     function getRoot(familyMembers) {
       return familyMembers.find(function (familyMember) {
         return (familyMember.firstNames[0] === rootMember.firstName && familyMember.lastNames[0] === rootMember.lastName);
@@ -60,7 +66,7 @@
 
     function setInfo(id, data) {
       return $http
-        .post(apiHost + '/familyMembers/' + id + '/info', data);
+        .put(apiHost + '/familyMembers/' + id + '/info', data);
     }
 
     function getSpouse(id) {
