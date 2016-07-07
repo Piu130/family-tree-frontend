@@ -36,6 +36,9 @@
         },
         order: {
           type: 'number'
+        },
+        public: {
+          type: 'boolean'
         }
       }
     };
