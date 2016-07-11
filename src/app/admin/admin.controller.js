@@ -155,7 +155,6 @@
         .then(function(response) {
           vm.modelInfo = response;
         });
-      console.log(vm.currentPerson);
     }
 
     function submitMain() {
