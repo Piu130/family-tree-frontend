@@ -13,7 +13,7 @@
       </div>
       <div class="col-xs-12 col-sm-6 col-sm-pull-6">
         <dl class="dl-horizontal">
-          <dt><span class="fa fa-transgender-alt"></span> {{ 'PERSON.GENDER' | translate }}:</dt><dd><span ng-hide="person.info.gender">-</span><span class="fa" ng-class="{'fa-mars': person.info.gender==='male', 'fa-venus': person.info.gender==='female', 'fa-transgender': person.info.gender==='transgender', 'fa-genderless': person.info.gender==='other'}"></span></dd>
+          <dt><span class="fa fa-transgender-alt"></span> {{ 'PERSON.GENDER' | translate }}:</dt><dd><span ng-hide="person.info.gender">- *</span><span class="fa" ng-class="{'fa-mars': person.info.gender==='male', 'fa-venus': person.info.gender==='female', 'fa-transgender': person.info.gender==='transgender', 'fa-genderless': person.info.gender==='other'}"></span></dd>
           <dt><span class="fa fa-gift"></span> {{ 'PERSON.BIRTHDAY' | translate }}:</dt><dd>{{ person.info.birthday | dash | date: 'dd.MM.yyyy' }}</dd>
           <dt><span class="fa fa-heartbeat"></span> {{ 'PERSON.AGE' | translate }}:</dt><dd>{{ person.info.age | dash: 'PERSON.YEARS':true }}</dd>
           <dt><span class="fa fa-arrows-v"></span> {{ 'PERSON.SIZE' | translate }}:</dt><dd>{{ person.info.size | dash: 'cm' }}</dd>
