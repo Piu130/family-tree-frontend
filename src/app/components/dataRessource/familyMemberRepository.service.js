@@ -66,7 +66,15 @@
 
     function setInfo(id, data) {
       return $http
-        .put(apiHost + '/familyMembers/' + id + '/info', data);
+        .get(apiHost + '/familyMembers/' + id + '/info')
+        .then(function() {
+          return $http
+            .put(apiHost + '/familyMembers/' + id + '/info', data)
+        })
+        .catch(function() {
+          return $http
+            .post(apiHost + '/familyMembers/' + id + '/info', data)
+        });
     }
 
     function getSpouse(id) {
