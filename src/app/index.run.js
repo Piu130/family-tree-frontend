@@ -11,8 +11,6 @@
     stringfunctionsService.initialize();
     authenticateRouteService.initialize();
 
-
-
     $log.debug('runBlock end');
   }
 

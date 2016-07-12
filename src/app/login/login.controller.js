@@ -16,7 +16,7 @@
       rememberMe: false
     };
 
-    function execute () {
+    function execute() {
       loginService
         .login(vm.user)
         .then(function () {

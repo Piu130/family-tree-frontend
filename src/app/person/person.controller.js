@@ -19,7 +19,7 @@
 
     function activate() {
       return familyMemberRepository
-        .get({ familyMemberId: $stateParams.id })
+        .get({familyMemberId: $stateParams.id})
         .$promise
         .then(function (response) {
           vm.info = response;
@@ -41,7 +41,7 @@
 
     function setInfo(id) {
       familyMemberRepository
-        .getInfo({ familyMemberId: id })
+        .getInfo({familyMemberId: id})
         .$promise
         .then(function (response) {
           vm.info = angular.extend(vm.info, response);

@@ -11,7 +11,7 @@
 
     vm.fromSlash = $state.params.fromSlash;
 
-    vm.redirect = function() {
+    vm.redirect = function () {
       $state.go('tree')
     };
   }

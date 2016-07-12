@@ -30,7 +30,7 @@
         .then(function (response) {
           const expires = new Date().getTime() + response.data.ttl * 1000;
 
-          $cookies.put('family_tree_access_token', response.data.id, { expires: new Date(expires) });
+          $cookies.put('family_tree_access_token', response.data.id, {expires: new Date(expires)});
           return response;
         });
     }
@@ -46,7 +46,7 @@
     }
 
     function isAuthenticated() {
-      return $cookies.get('family_tree_access_token')? true : false;
+      return $cookies.get('family_tree_access_token') ? true : false;
     }
   }
 })();

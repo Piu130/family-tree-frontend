@@ -136,9 +136,9 @@
 
     function editChange() {
       familyMemberRepository
-        .get({ familyMemberId: vm.currentPerson.id })
+        .get({familyMemberId: vm.currentPerson.id})
         .$promise
-        .then(function(response) {
+        .then(function (response) {
           console.log(response);
           vm.modelMain = response;
         });
@@ -146,7 +146,7 @@
       familyMemberRepository
         .getInfo({familyMemberId: vm.currentPerson.id})
         .$promise
-        .then(function(response) {
+        .then(function (response) {
           vm.modelInfo = response;
         });
     }
@@ -162,7 +162,7 @@
       familyMemberRepository
         .update(vm.modelMain);
 
-      if(vm.image) {
+      if (vm.image) {
         imageRepository
           .uploadProfilePicture(vm.image, vm.currentPerson);
       }
