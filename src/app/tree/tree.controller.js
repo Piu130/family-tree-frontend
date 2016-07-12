@@ -9,7 +9,7 @@
     .controller('TreeController', TreeController);
 
   /** @ngInject */
-  function TreeController($state, $uibModal, familyMemberRepository) {
+  function TreeController($state, $uibModal, familyMemberRepository, familyMemberObject) {
     const vm = this;
 
     vm.search = search;
@@ -51,9 +51,11 @@
 
     function activate() {
       return familyMemberRepository
-        .get()
+        .query()
+        .$promise
         .then(function (response) {
-          const rootMemberObject = familyMemberRepository.getRoot(response);
+          familyMemberObject.setFamilyMembers(response);
+          const rootMemberObject = familyMemberObject.getRoot();
 
           htmlTree += '[';
           htmlTree += getOpenFamilyMemberString();
@@ -84,7 +86,7 @@
     }
 
     function addChildren(id) {
-      const children = familyMemberRepository.getChildren(id);
+      const children = familyMemberObject.getChildren(id);
 
       if (children) {
         htmlTree += getOpenChildrenString();
@@ -108,14 +110,14 @@
     function getFamilyMemberString(familyMember) {
       let familyMemberString = '';
 
-      const spouse = familyMemberRepository.getSpouse(familyMember.id);
+      const spouse = familyMemberObject.getSpouse(familyMember.id);
 
       familyMemberString += '"familyMember":' + angular.toJson(familyMember) + ',"text":"';
-      familyMemberString += familyMemberRepository.getNamesAsString(familyMember, true);
+      familyMemberString += familyMemberObject.getNamesAsString(familyMember, true);
       if (spouse) {
         familyMemberString += ' <span class=\'no-text-wrap\'>';
         familyMemberString += '& ';
-        familyMemberString += familyMemberRepository.getNamesAsString(spouse, true);
+        familyMemberString += familyMemberObject.getNamesAsString(spouse, true);
         familyMemberString += '</span>';
       }
 

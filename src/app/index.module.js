@@ -6,6 +6,7 @@
       'ui.router',
       'ui.bootstrap',
       'ngSanitize',
+      'ngResource',
       'ngCookies',
       'ngAria',
       'pascalprecht.translate',

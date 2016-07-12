@@ -48,7 +48,7 @@
     "karma-phantomjs-launcher": "~1.0.0",
     "lodash": "~4.13.1",
     "main-bower-files": "~2.13.0",
-    "npm-check-updates": "~2.6.5",
+    "npm-check-updates": "^2.6.5",
     "phantomjs-prebuilt": "~2.1.7",
     "uglify-save-license": "~0.4.1",
     "wiredep": "~4.0.0"
