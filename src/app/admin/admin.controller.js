@@ -9,7 +9,7 @@
     .controller('AdminController', AdminController);
 
   /** @ngInject */
-  function AdminController(familyMemberRepository, imageRepository) {
+  function AdminController(familyMemberRepository, familyMemberInfoRepository, familyMemberObject, imageRepository) {
     const vm = this;
 
     vm.dropdownSpouseParent = [];
@@ -117,7 +117,6 @@
     vm.parent = '';
     vm.editChange = editChange;
     vm.spouse = '';
-    vm.submit = submit;
     vm.submitMain = submitMain;
     vm.submitInfo = submitInfo;
 
@@ -125,18 +124,19 @@
 
     function activate() {
       familyMemberRepository
-        .get()
+        .query()
+        .$promise
         .then(function (response) {
           vm.allFamilyMembers = response
             .map(function (familyMember) {
-              return {id: familyMember.id, label: familyMemberRepository.getNamesAsString(familyMember)}
+              return {id: familyMember.id, label: familyMemberObject.getNamesAsString(familyMember)}
             });
           vm.dropdownSpouseParent = response
             .filter(function (familyMember) {
               return !familyMember.spouseId;
             })
             .map(function (familyMember) {
-              return {id: familyMember.id, label: familyMemberRepository.getNamesAsString(familyMember)}
+              return {id: familyMember.id, label: familyMemberObject.getNamesAsString(familyMember)}
             });
 
           return response;
@@ -145,13 +145,16 @@
 
     function editChange() {
       familyMemberRepository
-        .query(vm.currentPerson.id)
+        .get({ familyMemberId: vm.currentPerson.id })
+        .$promise
         .then(function(response) {
+          console.log(response);
           vm.modelMain = response;
         });
 
       familyMemberRepository
-        .getInfo(vm.currentPerson.id)
+        .getInfo({familyMemberId: vm.currentPerson.id})
+        .$promise
         .then(function(response) {
           vm.modelInfo = response;
         });
@@ -166,7 +169,7 @@
       }
 
       familyMemberRepository
-        .put(vm.modelMain);
+        .update(vm.modelMain);
 
       if(vm.image) {
         imageRepository
@@ -175,31 +178,9 @@
     }
 
     function submitInfo() {
-      familyMemberRepository
-        .setInfo(vm.currentPerson.id, vm.modelInfo);
-    }
-
-    function submit() {
-      if (vm.spouse.id) {
-        vm.model.spouseId = vm.spouse.id
-      }
-      if (vm.parent.id) {
-        vm.model.parentId = vm.parent.id
-      }
-
-      const info = vm.model.info;
-      delete vm.model.info;
-
-      familyMemberRepository
-        .post(vm.model)
-        .then(function (response) {
-
-          familyMemberRepository
-            .setInfo(response.data.id, info);
-
-          imageRepository
-            .uploadProfilePicture(vm.image, response.data);
-        });
+      vm.modelInfo.familyMemberId = vm.currentPerson.id;
+      familyMemberInfoRepository
+        .update(vm.modelInfo);
     }
 
   }

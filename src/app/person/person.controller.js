@@ -8,7 +8,7 @@
     .controller('PersonController', PersonController);
 
   /** @ngInject */
-  function PersonController($translate, $stateParams, growl, familyMemberRepository, imageRepository) {
+  function PersonController($translate, $stateParams, growl, familyMemberRepository, familyMemberObject, imageRepository) {
     const vm = this;
 
     vm.imgSrc = '';
@@ -19,7 +19,8 @@
 
     function activate() {
       return familyMemberRepository
-        .query($stateParams.id)
+        .get({ familyMemberId: $stateParams.id })
+        .$promise
         .then(function (response) {
           vm.info = response;
           setInfo(response.id);
@@ -31,7 +32,7 @@
     }
 
     function setTitle(person) {
-      vm.title = familyMemberRepository.getNamesAsString(person, true);
+      vm.title = familyMemberObject.getNamesAsString(person, true);
     }
 
     function setImage(person) {
@@ -40,10 +41,11 @@
 
     function setInfo(id) {
       familyMemberRepository
-        .getInfo(id)
+        .getInfo({ familyMemberId: id })
+        .$promise
         .then(function (response) {
           vm.info = angular.extend(vm.info, response);
-          vm.info.age = familyMemberRepository.getAge(response.birthday);
+          vm.info.age = familyMemberObject.getAge(response.birthday);
         })
         .catch(function (error) {
           if (error.status === 401) {
