@@ -12,36 +12,28 @@
   function AdminController(familyMemberRepository, familyMemberInfoRepository, familyMemberObject, imageRepository) {
     const vm = this;
 
-    vm.dropdownSpouseParent = [];
     vm.allFamilyMembers = [];
     vm.currentPerson = {};
-    vm.schemaMain = {
-      type: 'object',
-      properties: {
-        firstNames: {
-          type: 'array',
-          items: {
-            type: 'string'
-          }
-        },
-        lastNames: {
-          type: 'array',
-          items: {
-            type: 'string'
-          }
-        },
-        dayOfDeath: {
-          type: 'string',
-          format: 'date'
-        },
-        order: {
-          type: 'number'
-        },
-        public: {
-          type: 'boolean'
-        }
+    vm.dropdownSpouseParent = [];
+    vm.editChange = editChange;
+    vm.formInfo = [
+      '*',
+      {
+        type: 'submit',
+        title: 'Save'
       }
-    };
+    ];
+    vm.formMain = [
+      '*',
+      {
+        type: 'submit',
+        title: 'Save'
+      }
+    ];
+    vm.image = null;
+    vm.modelInfo = {};
+    vm.modelMain = {};
+    vm.parent = '';
     vm.schemaInfo = {
       type: 'object',
       properties: {
@@ -88,37 +80,36 @@
         }
       }
     };
-    vm.formMain = [
-      '*',
-      {
-        type: 'submit',
-        title: 'Save'
+    vm.schemaMain = {
+      type: 'object',
+      properties: {
+        firstNames: {
+          type: 'array',
+          items: {
+            type: 'string'
+          }
+        },
+        lastNames: {
+          type: 'array',
+          items: {
+            type: 'string'
+          }
+        },
+        dayOfDeath: {
+          type: 'string',
+          format: 'date'
+        },
+        order: {
+          type: 'number'
+        },
+        public: {
+          type: 'boolean'
+        }
       }
-    ];
-    vm.formInfo = [
-      '*',
-      {
-        type: 'submit',
-        title: 'Save'
-      }
-    ];
-    vm.modelMain = {};
-    vm.modelInfo = {};
-
-    vm.form = [
-      '*',
-      {
-        type: 'submit',
-        title: 'Save'
-      }
-    ];
-    vm.image = null;
-    vm.model = {};
-    vm.parent = '';
-    vm.editChange = editChange;
+    };
     vm.spouse = '';
-    vm.submitMain = submitMain;
     vm.submitInfo = submitInfo;
+    vm.submitMain = submitMain;
 
     activate();
 
