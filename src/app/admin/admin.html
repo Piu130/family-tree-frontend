@@ -4,6 +4,8 @@
     <acme-navbar></acme-navbar>
   </div>
 
+  <button ng-click="admin.resetPage()">reset</button>
+
   <div class="form-group">
     <label for="spouse">Bearbeiten</label>
     <select id="currentPerson" ng-change="admin.editChange()" ng-model="admin.currentPerson" ng-options="option.label for option in admin.allFamilyMembers">
@@ -25,13 +27,13 @@
     </select>
   </div>
 
-  <div class="form-group">
+  <div ng-show="admin.currentPerson" class="form-group">
     <label for="image">Bild (.jpg)</label>
     <input id="image" ngf-select ng-model="admin.image" ngf-accept="'image/*'" type="file">
   </div>
 
   <form sf-schema="admin.schemaMain" sf-form="admin.formMain" sf-model="admin.modelMain" ng-submit="admin.submitMain()"></form>
 
-  <form sf-schema="admin.schemaInfo" sf-form="admin.formInfo" sf-model="admin.modelInfo" ng-submit="admin.submitInfo()"></form>
+  <form ng-show="admin.currentPerson" sf-schema="admin.schemaInfo" sf-form="admin.formInfo" sf-model="admin.modelInfo" ng-submit="admin.submitInfo()"></form>
 
 </div>

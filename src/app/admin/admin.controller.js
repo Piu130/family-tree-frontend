@@ -13,7 +13,7 @@
     const vm = this;
 
     vm.allFamilyMembers = [];
-    vm.currentPerson = {};
+    vm.currentPerson = null;
     vm.dropdownSpouseParent = [];
     vm.editChange = editChange;
     vm.formInfo = [
@@ -34,6 +34,7 @@
     vm.modelInfo = {};
     vm.modelMain = {};
     vm.parent = '';
+    vm.resetPage = resetPage;
     vm.schemaInfo = {
       type: 'object',
       properties: {
@@ -134,21 +135,34 @@
         });
     }
 
-    function editChange() {
-      familyMemberRepository
-        .get({familyMemberId: vm.currentPerson.id})
-        .$promise
-        .then(function (response) {
-          console.log(response);
-          vm.modelMain = response;
-        });
+    function resetPage() {
+      vm.currentPerson = null;
+      vm.modelInfo = {};
+      vm.modelMain = {};
+      vm.parent = '';
+      vm.spouse = '';
+      vm.image = null;
+    }
 
-      familyMemberRepository
-        .getInfo({familyMemberId: vm.currentPerson.id})
-        .$promise
-        .then(function (response) {
-          vm.modelInfo = response;
-        });
+    function editChange() {
+      if (vm.currentPerson) {
+        familyMemberRepository
+          .get({familyMemberId: vm.currentPerson.id})
+          .$promise
+          .then(function (response) {
+            console.log(response);
+            vm.modelMain = response;
+          });
+
+        familyMemberRepository
+          .getInfo({familyMemberId: vm.currentPerson.id})
+          .$promise
+          .then(function (response) {
+            vm.modelInfo = response;
+          });
+      } else {
+        resetPage();
+      }
     }
 
     function submitMain() {
