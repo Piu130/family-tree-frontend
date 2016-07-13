@@ -150,7 +150,6 @@
           .get({familyMemberId: vm.currentPerson.id})
           .$promise
           .then(function (response) {
-            console.log(response);
             vm.modelMain = response;
           });
 
