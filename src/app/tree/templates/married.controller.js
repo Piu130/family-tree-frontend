@@ -6,7 +6,7 @@
     .controller('MarriedController', MarriedController);
 
   /** @ngInject */
-  function MarriedController($uibModalInstance, data, familyMemberRepository, familyMemberObject) {
+  function MarriedController($uibModalInstance, data, familyMemberObject) {
     const vm = this;
 
     vm.closeModal = closeModal;
