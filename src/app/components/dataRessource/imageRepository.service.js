@@ -25,7 +25,6 @@
     }
 
     function upload(file, fileName) {
-
       return Upload.upload({
         url: apiHost + '/containers/family_member_images/upload',
         data: {file: Upload.rename(file, fileName)}
