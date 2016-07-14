@@ -162,6 +162,7 @@
 
       familyMemberRepository
         .update(vm.modelMain)
+        .$promise
         .then(function(response) {
           vm.currentPerson = response;
         });
