@@ -4,13 +4,9 @@
     <acme-navbar></acme-navbar>
   </div>
 
-  <button ng-click="admin.resetPage()">reset</button>
-
   <div class="form-group">
     <label for="spouse">Bearbeiten</label>
-    <select id="currentPerson" ng-change="admin.editChange()" ng-model="admin.currentPerson" ng-options="option.label for option in admin.allFamilyMembers">
-      <option></option>
-    </select>
+    <select id="currentPerson" ng-change="admin.editChange()" ng-model="admin.currentPerson" ng-options="option.label for option in admin.allFamilyMembers"></select>
   </div>
 
   <div class="form-group" ng-hide="admin.parent">

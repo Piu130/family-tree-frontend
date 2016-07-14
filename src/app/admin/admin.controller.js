@@ -34,7 +34,6 @@
     vm.modelInfo = {};
     vm.modelMain = {};
     vm.parent = '';
-    vm.resetPage = resetPage;
     vm.schemaInfo = {
       type: 'object',
       properties: {
@@ -135,15 +134,6 @@
         });
     }
 
-    function resetPage() {
-      vm.currentPerson = null;
-      vm.modelInfo = {};
-      vm.modelMain = {};
-      vm.parent = '';
-      vm.spouse = '';
-      vm.image = null;
-    }
-
     function editChange() {
       if (vm.currentPerson) {
         familyMemberRepository
@@ -159,8 +149,6 @@
           .then(function (response) {
             vm.modelInfo = response;
           });
-      } else {
-        resetPage();
       }
     }
 
@@ -173,7 +161,10 @@
       }
 
       familyMemberRepository
-        .update(vm.modelMain);
+        .update(vm.modelMain)
+        .then(function(response) {
+          vm.currentPerson = response;
+        });
 
       if (vm.image) {
         imageRepository
