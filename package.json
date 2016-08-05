@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {},
   "scripts": {
-    "start": "./node_modules/gulp/bin/gulp.js serve",
-    "prestart": "npm install; ./node_modules/bower/bin/bower install",
-    "test": "./node_modules/gulp/bin/gulp.js test",
-    "checkNpmUpdates": "./node_modules/npm-check-updates/bin/ncu",
-    "checkBowerUpdates": "./node_modules/npm-check-updates/bin/ncu -m bower"
+    "start": "gulp serve",
+    "prestart": "npm install; bower install",
+    "test": "gulp test",
+    "checkNpmUpdates": "ncu",
+    "checkBowerUpdates": "ncu -m bower"
   },
   "devDependencies": {
     "bower": "~1.7.9",
