@@ -119,9 +119,6 @@
         familyMemberString += '& ';
         familyMemberString += familyMemberObject.getNamesAsString(spouse, true);
         familyMemberString += '</span>';
-      }
-
-      if (spouse) {
         familyMemberString += '","id":["' + familyMember.id + '","' + spouse.id + '"],' + '"spouse":' + angular.toJson(spouse) + ',';
       } else {
         familyMemberString += '","id":"' + familyMember.id + '",';
